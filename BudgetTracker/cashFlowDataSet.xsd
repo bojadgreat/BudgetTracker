@@ -40,7 +40,7 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_timestamp FROM dbo.cash_flow_table</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -86,27 +86,27 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
   <xs:element name="cashFlowDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="cashFlowDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="cashFlowDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="cash_flow_table" msprop:Generator_RowClassName="cash_flow_tableRow" msprop:Generator_RowEvHandlerName="cash_flow_tableRowChangeEventHandler" msprop:Generator_RowDeletedName="cash_flow_tableRowDeleted" msprop:Generator_RowDeletingName="cash_flow_tableRowDeleting" msprop:Generator_RowEvArgName="cash_flow_tableRowChangeEvent" msprop:Generator_TablePropName="cash_flow_table" msprop:Generator_RowChangedName="cash_flow_tableRowChanged" msprop:Generator_UserTableName="cash_flow_table" msprop:Generator_RowChangingName="cash_flow_tableRowChanging" msprop:Generator_TableClassName="cash_flow_tableDataTable" msprop:Generator_TableVarName="tablecash_flow_table">
+        <xs:element name="cash_flow_table" msprop:Generator_RowEvHandlerName="cash_flow_tableRowChangeEventHandler" msprop:Generator_RowDeletedName="cash_flow_tableRowDeleted" msprop:Generator_RowDeletingName="cash_flow_tableRowDeleting" msprop:Generator_RowEvArgName="cash_flow_tableRowChangeEvent" msprop:Generator_TablePropName="cash_flow_table" msprop:Generator_RowChangedName="cash_flow_tableRowChanged" msprop:Generator_UserTableName="cash_flow_table" msprop:Generator_RowChangingName="cash_flow_tableRowChanging" msprop:Generator_RowClassName="cash_flow_tableRow" msprop:Generator_TableClassName="cash_flow_tableDataTable" msprop:Generator_TableVarName="tablecash_flow_table">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Flow_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Flow_ID" msprop:Generator_ColumnPropNameInTable="Flow_IDColumn" msprop:Generator_ColumnPropNameInRow="Flow_ID" msprop:Generator_ColumnVarNameInTable="columnFlow_ID" type="xs:int" />
-              <xs:element name="Flow_description" msprop:Generator_UserColumnName="Flow_description" msprop:Generator_ColumnPropNameInTable="Flow_descriptionColumn" msprop:Generator_ColumnPropNameInRow="Flow_description" msprop:Generator_ColumnVarNameInTable="columnFlow_description">
+              <xs:element name="Flow_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Flow_IDColumn" msprop:Generator_ColumnPropNameInRow="Flow_ID" msprop:Generator_UserColumnName="Flow_ID" msprop:Generator_ColumnVarNameInTable="columnFlow_ID" type="xs:int" />
+              <xs:element name="Flow_description" msprop:Generator_ColumnPropNameInTable="Flow_descriptionColumn" msprop:Generator_ColumnPropNameInRow="Flow_description" msprop:Generator_UserColumnName="Flow_description" msprop:Generator_ColumnVarNameInTable="columnFlow_description">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Flow_amount" msprop:Generator_UserColumnName="Flow_amount" msprop:Generator_ColumnPropNameInTable="Flow_amountColumn" msprop:Generator_ColumnPropNameInRow="Flow_amount" msprop:Generator_ColumnVarNameInTable="columnFlow_amount" type="xs:double" />
-              <xs:element name="Flow_type" msprop:Generator_UserColumnName="Flow_type" msprop:Generator_ColumnPropNameInTable="Flow_typeColumn" msprop:Generator_ColumnPropNameInRow="Flow_type" msprop:Generator_ColumnVarNameInTable="columnFlow_type">
+              <xs:element name="Flow_amount" msprop:Generator_ColumnPropNameInTable="Flow_amountColumn" msprop:Generator_ColumnPropNameInRow="Flow_amount" msprop:Generator_UserColumnName="Flow_amount" msprop:Generator_ColumnVarNameInTable="columnFlow_amount" type="xs:double" />
+              <xs:element name="Flow_type" msprop:Generator_ColumnPropNameInTable="Flow_typeColumn" msprop:Generator_ColumnPropNameInRow="Flow_type" msprop:Generator_UserColumnName="Flow_type" msprop:Generator_ColumnVarNameInTable="columnFlow_type">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Flow_datetime" msprop:Generator_UserColumnName="Flow_datetime" msprop:Generator_ColumnPropNameInTable="Flow_datetimeColumn" msprop:Generator_ColumnPropNameInRow="Flow_datetime" msprop:Generator_ColumnVarNameInTable="columnFlow_datetime" type="xs:dateTime" />
-              <xs:element name="Flow_timestamp" msprop:Generator_UserColumnName="Flow_timestamp" msprop:Generator_ColumnPropNameInTable="Flow_timestampColumn" msprop:Generator_ColumnPropNameInRow="Flow_timestamp" msprop:Generator_ColumnVarNameInTable="columnFlow_timestamp" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Flow_datetime" msprop:Generator_ColumnPropNameInTable="Flow_datetimeColumn" msprop:Generator_ColumnPropNameInRow="Flow_datetime" msprop:Generator_UserColumnName="Flow_datetime" msprop:Generator_ColumnVarNameInTable="columnFlow_datetime" type="xs:dateTime" />
+              <xs:element name="Flow_timestamp" msprop:Generator_ColumnPropNameInTable="Flow_timestampColumn" msprop:Generator_ColumnPropNameInRow="Flow_timestamp" msprop:Generator_UserColumnName="Flow_timestamp" msprop:Generator_ColumnVarNameInTable="columnFlow_timestamp" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

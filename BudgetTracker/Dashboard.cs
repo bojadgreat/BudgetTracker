@@ -150,7 +150,7 @@ namespace BudgetTracker
             cash_flow_tableTableAdapter tableAdapter = new cash_flow_tableTableAdapter();
 
             // Call Fill() method on the TableAdapter to populate the dataset
-            tableAdapter.Fill(cfds.cash_flow_table);  // This is where the data is fetched
+            tableAdapter.Fill(cfds.cash_flow_table);  
 
             List<date_expense> date_Expense = new List<date_expense>();
 
@@ -188,6 +188,13 @@ namespace BudgetTracker
             dgvSetHeadTextColumn("Entry Timestamp", 4, cash_flowDataGridView);
 
             initialize_chart(chartTotal(), chartInc(), chartExp());
+        }
+
+        private void edit_button_Click(object sender, EventArgs e)
+        {
+            var menuForm = new Forms.menu_form("edit");
+            menuForm.Show();
+            menuForm.FormClosed += (s, ev) => reloadData();
         }
     }
 }
