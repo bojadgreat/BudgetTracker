@@ -30,7 +30,7 @@ namespace BudgetTracker.UserControls
         {
             var new_ent = new Models.cashflow_model();
             new_ent.flow_description = add_descTB.Text;
-            new_ent.flow_amount = (float)Convert.ToDouble(add_amtTB.Text);
+            new_ent.flow_amount = (float)Math.Round(Convert.ToDouble(add_amtTB.Text), 2);
             new_ent.flow_datetime = add_dateDTP.Value;
             new_ent.flow_type = add_typeCbox.Text;
             
