@@ -23,22 +23,26 @@ namespace BudgetTracker
         public Dashboard()
         {
             InitializeComponent();
+            date_label.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            updateClock();
+        }
+        
+        private async void updateClock()
+        {
+            while (true)
+            {
+                // Update the label with the current time (hours, minutes, seconds)
+                time_label.Text = DateTime.Now.ToString("HH:mm:ss");  // 24-hour format with seconds
+
+                // Wait for 1 second before updating again (non-blocking)
+                await Task.Delay(1000);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'cashFlowDataSet.cash_flow_table' table. You can move, or remove it, as needed.
-            this.cash_flow_tableTableAdapter.Fill(this.cashFlowDataSet.cash_flow_table);
-            cash_flow_tableTableAdapter cft = new cash_flow_tableTableAdapter();
-            cash_flowDataGridView.DataSource = cft.GetData();
-
-            dgvSetHeadTextColumn("Entry ID", 0, cash_flowDataGridView);
-            dgvSetHeadTextColumn("Entry Description", 1, cash_flowDataGridView);
-            dgvSetHeadTextColumn("Entry Amount", 2, cash_flowDataGridView);
-            dgvSetHeadTextColumn("Entry Date", 3, cash_flowDataGridView);
-            dgvSetHeadTextColumn("Entry Timestamp", 4, cash_flowDataGridView);
-
-            initialize_chart(chartTotal(), chartInc(), chartExp());
+            reloadData();
         }
 
         private void dgvSetHeadTextColumn(string headText, int colInd, DataGridView dgvCol)
@@ -156,7 +160,7 @@ namespace BudgetTracker
                 .Select(g => new date_expense
                 {
                     ent_date = g.Key,                // The date
-                    ent_exp_amount = (float)g.Where(t => t.Flow_type == "Expense").Sum(t => t.Flow_amount) // Sum the Flow_amount for that date and type
+                    ent_exp_amount = ((float)g.Where(t => t.Flow_type == "Expense").Sum(t => t.Flow_amount)) * -1 // Sum the Flow_amount for that date and type
                 })
                 .ToList();
 
@@ -170,7 +174,21 @@ namespace BudgetTracker
         {
             var menuForm = new Forms.menu_form("add");
             menuForm.Show();
-            //addClientForm.FormClosed += (s, ev) => reloadData();
+            menuForm.FormClosed += (s, ev) => reloadData();
+        }
+        
+        private void reloadData()
+        {
+            cash_flow_tableTableAdapter cft = new cash_flow_tableTableAdapter();
+            cash_flowDataGridView.DataSource = cft.GetData();
+
+            dgvSetHeadTextColumn("Entry ID", 0, cash_flowDataGridView);
+            dgvSetHeadTextColumn("Entry Description", 1, cash_flowDataGridView);
+            dgvSetHeadTextColumn("Entry Amount", 2, cash_flowDataGridView);
+            dgvSetHeadTextColumn("Entry Date", 3, cash_flowDataGridView);
+            dgvSetHeadTextColumn("Entry Timestamp", 4, cash_flowDataGridView);
+
+            initialize_chart(chartTotal(), chartInc(), chartExp());
         }
     }
 }

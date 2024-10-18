@@ -1,4 +1,5 @@
 ﻿using BudgetTracker.cashFlowDataSetTableAdapters;
+using BudgetTracker.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,9 +21,9 @@ namespace BudgetTracker.UserControls
 
         private void user_cancel_button_Click(object sender, EventArgs e)
         {
-            add_descTB.Text = "";
-            add_amtTB.Text = "";
-            add_dateDTP.Value = DateTime.Now;
+            Form tmp = this.FindForm();
+            tmp.Close();
+            tmp.Dispose();
         }
 
         private void user_add_button_Click(object sender, EventArgs e)
@@ -32,6 +33,11 @@ namespace BudgetTracker.UserControls
             new_ent.flow_amount = (float)Convert.ToDouble(add_amtTB.Text);
             new_ent.flow_datetime = add_dateDTP.Value;
             new_ent.flow_type = add_typeCbox.Text;
+            
+            if(new_ent.flow_type == "Expense")
+            {
+                new_ent.flow_amount *= -1;
+            }
 
             try
             {

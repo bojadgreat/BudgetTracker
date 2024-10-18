@@ -31,6 +31,8 @@
             this.header_add_panel = new System.Windows.Forms.Panel();
             this.add_label = new System.Windows.Forms.Label();
             this.entry_panel = new System.Windows.Forms.Panel();
+            this.add_typeCbox = new System.Windows.Forms.ComboBox();
+            this.type_label = new System.Windows.Forms.Label();
             this.user_add_button = new System.Windows.Forms.Button();
             this.user_cancel_button = new System.Windows.Forms.Button();
             this.add_dateDTP = new System.Windows.Forms.DateTimePicker();
@@ -39,8 +41,6 @@
             this.amount_label = new System.Windows.Forms.Label();
             this.add_descTB = new System.Windows.Forms.TextBox();
             this.desc_label = new System.Windows.Forms.Label();
-            this.type_label = new System.Windows.Forms.Label();
-            this.add_typeCbox = new System.Windows.Forms.ComboBox();
             this.header_add_panel.SuspendLayout();
             this.entry_panel.SuspendLayout();
             this.SuspendLayout();
@@ -83,13 +83,36 @@
             this.entry_panel.Size = new System.Drawing.Size(672, 291);
             this.entry_panel.TabIndex = 1;
             // 
+            // add_typeCbox
+            // 
+            this.add_typeCbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.add_typeCbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_typeCbox.FormattingEnabled = true;
+            this.add_typeCbox.Items.AddRange(new object[] {
+            "Income",
+            "Expense"});
+            this.add_typeCbox.Location = new System.Drawing.Point(434, 98);
+            this.add_typeCbox.Name = "add_typeCbox";
+            this.add_typeCbox.Size = new System.Drawing.Size(208, 33);
+            this.add_typeCbox.TabIndex = 4;
+            // 
+            // type_label
+            // 
+            this.type_label.AutoSize = true;
+            this.type_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.type_label.Location = new System.Drawing.Point(365, 100);
+            this.type_label.Name = "type_label";
+            this.type_label.Size = new System.Drawing.Size(66, 25);
+            this.type_label.TabIndex = 6;
+            this.type_label.Text = "Type:";
+            // 
             // user_add_button
             // 
             this.user_add_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_add_button.Location = new System.Drawing.Point(418, 205);
             this.user_add_button.Name = "user_add_button";
             this.user_add_button.Size = new System.Drawing.Size(243, 69);
-            this.user_add_button.TabIndex = 4;
+            this.user_add_button.TabIndex = 5;
             this.user_add_button.Text = "ADD ENTRY";
             this.user_add_button.UseVisualStyleBackColor = true;
             this.user_add_button.Click += new System.EventHandler(this.user_add_button_Click);
@@ -100,7 +123,7 @@
             this.user_cancel_button.Location = new System.Drawing.Point(14, 205);
             this.user_cancel_button.Name = "user_cancel_button";
             this.user_cancel_button.Size = new System.Drawing.Size(243, 69);
-            this.user_cancel_button.TabIndex = 5;
+            this.user_cancel_button.TabIndex = 6;
             this.user_cancel_button.Text = "CANCEL";
             this.user_cancel_button.UseVisualStyleBackColor = true;
             this.user_cancel_button.Click += new System.EventHandler(this.user_cancel_button_Click);
@@ -159,29 +182,6 @@
             this.desc_label.Size = new System.Drawing.Size(126, 25);
             this.desc_label.TabIndex = 0;
             this.desc_label.Text = "Description:";
-            // 
-            // type_label
-            // 
-            this.type_label.AutoSize = true;
-            this.type_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.type_label.Location = new System.Drawing.Point(365, 100);
-            this.type_label.Name = "type_label";
-            this.type_label.Size = new System.Drawing.Size(66, 25);
-            this.type_label.TabIndex = 6;
-            this.type_label.Text = "Type:";
-            // 
-            // add_typeCbox
-            // 
-            this.add_typeCbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.add_typeCbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_typeCbox.FormattingEnabled = true;
-            this.add_typeCbox.Items.AddRange(new object[] {
-            "Income",
-            "Expense"});
-            this.add_typeCbox.Location = new System.Drawing.Point(434, 98);
-            this.add_typeCbox.Name = "add_typeCbox";
-            this.add_typeCbox.Size = new System.Drawing.Size(208, 33);
-            this.add_typeCbox.TabIndex = 7;
             // 
             // add_userControl
             // 
