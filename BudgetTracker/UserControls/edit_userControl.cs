@@ -1,13 +1,9 @@
 ﻿using BudgetTracker.cashFlowDataSetTableAdapters;
 using BudgetTracker.Models;
+using BudgetTracker.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BudgetTracker.UserControls
@@ -18,14 +14,7 @@ namespace BudgetTracker.UserControls
         {
             InitializeComponent();
 
-            // Create a new instance of the cashFlowDataSet for fetching
-            cashFlowDataSet cfds = new cashFlowDataSet();
-
-            // Initialize the TableAdapter
-            cash_flow_tableTableAdapter tableAdapter = new cash_flow_tableTableAdapter();
-
-            // Call Fill() method on the TableAdapter to populate the dataset
-            tableAdapter.Fill(cfds.cash_flow_table);
+            var cfds = DBUtil.Get_cfds();
 
             var eId = cfds.cash_flow_table.Select(t => t.Flow_ID).ToList();
 
@@ -35,7 +24,10 @@ namespace BudgetTracker.UserControls
 
         private void user_edit_button_Click(object sender, EventArgs e)
         {
+            DBUtil db = new DBUtil();
 
+            var e_edit = db.GetCashFlowData();
+            
         }
 
         private void user_cancel_button_Click(object sender, EventArgs e)
@@ -54,12 +46,6 @@ namespace BudgetTracker.UserControls
 
                 // Create a new instance of the cashFlowDataSet for fetching
                 cashFlowDataSet cfds = new cashFlowDataSet();
-
-                // Initialize the TableAdapter
-                cash_flow_tableTableAdapter tableAdapter = new cash_flow_tableTableAdapter();
-
-                // Call Fill() method on the TableAdapter to populate the dataset
-                tableAdapter.Fill(cfds.cash_flow_table);
 
                 var flowData = new cashflow_model
                 {

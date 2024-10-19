@@ -1,5 +1,6 @@
 ﻿using BudgetTracker.cashFlowDataSetTableAdapters;
 using BudgetTracker.Models;
+using BudgetTracker.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -90,13 +91,7 @@ namespace BudgetTracker
 
         private List<date_total> chartTotal()
         {
-            cashFlowDataSet cfds = new cashFlowDataSet();
-
-            // Initialize the TableAdapter
-            cash_flow_tableTableAdapter tableAdapter = new cash_flow_tableTableAdapter();
-
-            // Call Fill() method on the TableAdapter to populate the dataset
-            tableAdapter.Fill(cfds.cash_flow_table);  // This is where the data is fetched
+            var cfds = DBUtil.Get_cfds();
 
             List<date_total> date_Totals = new List<date_total>();
 
@@ -117,13 +112,7 @@ namespace BudgetTracker
 
         private List<date_income> chartInc()
         {
-            cashFlowDataSet cfds = new cashFlowDataSet();
-
-            // Initialize the TableAdapter
-            cash_flow_tableTableAdapter tableAdapter = new cash_flow_tableTableAdapter();
-
-            // Call Fill() method on the TableAdapter to populate the dataset
-            tableAdapter.Fill(cfds.cash_flow_table);  // This is where the data is fetched
+            var cfds = DBUtil.Get_cfds();
 
             List<date_income> date_Income = new List<date_income>();
 
@@ -144,13 +133,7 @@ namespace BudgetTracker
 
         private List<date_expense> chartExp()
         {
-            cashFlowDataSet cfds = new cashFlowDataSet();
-
-            // Initialize the TableAdapter
-            cash_flow_tableTableAdapter tableAdapter = new cash_flow_tableTableAdapter();
-
-            // Call Fill() method on the TableAdapter to populate the dataset
-            tableAdapter.Fill(cfds.cash_flow_table);  
+            var cfds = DBUtil.Get_cfds();
 
             List<date_expense> date_Expense = new List<date_expense>();
 

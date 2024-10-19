@@ -284,6 +284,7 @@
     <Compile Include="Forms\menu_form.Designer.cs">
       <DependentUpon>menu_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\cashflow_history_model.cs" />
     <Compile Include="Models\cashflow_model.cs" />
     <Compile Include="Models\date_income.cs" />
     <Compile Include="Models\date_total.cs" />
@@ -314,6 +315,7 @@
     <Compile Include="UserControls\history_userControl.Designer.cs">
       <DependentUpon>history_userControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\DBUtil.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
