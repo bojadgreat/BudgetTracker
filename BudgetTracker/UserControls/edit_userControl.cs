@@ -47,36 +47,45 @@ namespace BudgetTracker.UserControls
                 // Create a new instance of the cashFlowDataSet for fetching
                 cashFlowDataSet cfds = new cashFlowDataSet();
 
-                var flowData = new cashflow_model
-                {
-                    flow_amount = (float)cfds.cash_flow_table
-                                        .Where(t => t.Flow_ID == id)
-                                        .Select(t => t.Flow_amount)
-                                        .FirstOrDefault(),
-                    flow_description = cfds.cash_flow_table
+                // Initialize the TableAdapter
+                cash_flow_tableTableAdapter tableAdapter = new cash_flow_tableTableAdapter();
+
+                // Call Fill() method on the TableAdapter to populate the dataset
+                tableAdapter.Fill(cfds.cash_flow_table);
+
+                var flowData = new cashflow_model();
+
+                flowData.SetEditFlowAmount((float)cfds.cash_flow_table
+                                    .Where(t => t.Flow_ID == id)
+                                    .Select(t => t.Flow_amount)
+                                    .FirstOrDefault());
+                
+                flowData.SetEditFlowDescription(cfds.cash_flow_table
                                         .Where(t => t.Flow_ID == id)
                                         .Select(t => t.Flow_description)
-                                        .FirstOrDefault(),
-                    flow_type = cfds.cash_flow_table
+                                        .FirstOrDefault());
+
+                flowData.SetEditFlowType(cfds.cash_flow_table
                                         .Where(t => t.Flow_ID == id)
                                         .Select(t => t.Flow_type)
-                                        .FirstOrDefault(),
-                    flow_datetime = cfds.cash_flow_table
+                                        .FirstOrDefault());
+
+                flowData.SetEditFlowDatetime(cfds.cash_flow_table
                                         .Where(t => t.Flow_ID == id)
                                         .Select(t => t.Flow_datetime)
-                                        .FirstOrDefault(),
-                    flow_timestamp = cfds.cash_flow_table
-                                        .Where(t => t.Flow_ID == id)
-                                        .Select(t => t.Flow_timestamp)
-                                        .FirstOrDefault()
-                };
+                                        .FirstOrDefault());
+
+                flowData.SetEditFlowTimestamp(cfds.cash_flow_table
+                                    .Where(t => t.Flow_ID == id)
+                                    .Select(t => t.Flow_timestamp)
+                                    .FirstOrDefault());
 
                 // Set the description in the TextBox
                 edit_descTB.Text = flowData.flow_description;
                 // Set the type in the TextBox
                 edit_typeCbox.Text = flowData.flow_type;
                 // Set the description in the TextBox
-                edit_dateDTP.Value = flowData.flow_datetime;
+                edit_dateDTP.Value = flowData.flow_datetime.Date;
                 // Set the amount in the TextBox
                 edit_amtTB.Text = flowData.flow_amount.ToString();
             }

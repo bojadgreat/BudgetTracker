@@ -29,24 +29,23 @@ namespace BudgetTracker.Utilities
             var cfds = Get_cfds();
 
             // Select the first record in the table and populate cashflow_model
-            var flowData = new cashflow_model
-            {
-                flow_amount = (float?)cfds.cash_flow_table
-                                        .Select(t => (float)t.Flow_amount)
-                                        .FirstOrDefault() ?? 0, // Handle nulls
-                flow_description = cfds.cash_flow_table
-                                        .Select(t => t.Flow_description)
-                                        .FirstOrDefault(),
-                flow_type = cfds.cash_flow_table
-                                        .Select(t => t.Flow_type)
-                                        .FirstOrDefault(),
-                flow_datetime = cfds.cash_flow_table
-                                        .Select(t => t.Flow_datetime)
-                                        .FirstOrDefault(),
-                flow_timestamp = cfds.cash_flow_table
-                                        .Select(t => t.Flow_timestamp)
-                                        .FirstOrDefault()
-            };
+            var flowData = new cashflow_model();
+            
+            flowData.SetFlowAmount((float?)cfds.cash_flow_table
+                                .Select(t => (float)t.Flow_amount)
+                                .FirstOrDefault() ?? 0); // Handle nulls
+            flowData.SetFlowDescription(cfds.cash_flow_table
+                                .Select(t => t.Flow_description)
+                                .FirstOrDefault());
+            flowData.SetFlowType(cfds.cash_flow_table
+                                .Select(t => t.Flow_type)
+                                .FirstOrDefault());
+            flowData.SetFlowDatetime(cfds.cash_flow_table
+                                .Select(t => t.Flow_datetime)
+                                .FirstOrDefault());
+            flowData.SetFlowTimestamp(cfds.cash_flow_table
+                                .Select(t => t.Flow_timestamp)
+                                .FirstOrDefault());
 
             return flowData;
         }
@@ -63,6 +62,13 @@ namespace BudgetTracker.Utilities
             tableAdapter.Fill(cfds.cash_flow_table);
 
             return cfds;
+        }
+        
+        public static void Set_cfds(cashflow_model cfmodel)
+        {
+            var cfds_set = Get_cfds();
+
+            cfds_set.cash_flow_table.Select(t => t.Flow_description);
         }
     }
 }

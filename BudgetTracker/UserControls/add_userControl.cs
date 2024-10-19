@@ -29,14 +29,33 @@ namespace BudgetTracker.UserControls
         private void user_add_button_Click(object sender, EventArgs e)
         {
             var new_ent = new Models.cashflow_model();
-            new_ent.flow_description = add_descTB.Text;
-            new_ent.flow_amount = (float)Math.Round(Convert.ToDouble(add_amtTB.Text), 2);
-            new_ent.flow_datetime = add_dateDTP.Value;
-            new_ent.flow_type = add_typeCbox.Text;
+
+            // Validate description
+            if (!new_ent.SetFlowDescription(add_descTB.Text))
+            {
+                return; // Stop execution if invalid
+            }
+
+            // Validate type
+            if (!new_ent.SetFlowType(add_typeCbox.Text))
+            {
+                return; // Stop execution if invalid
+            }
+
+            // Validate amount
+            if (!new_ent.SetFlowAmount(add_amtTB.Text))
+            {
+                return; // Stop execution if invalid
+            }
+
+            new_ent.SetFlowDescription(add_descTB.Text);
+            new_ent.SetFlowAmount(add_amtTB.Text);
+            new_ent.SetFlowDatetime(add_dateDTP.Value);
+            new_ent.SetFlowType(add_typeCbox.Text);
             
             if(new_ent.flow_type == "Expense")
             {
-                new_ent.flow_amount *= -1;
+                new_ent.SetExpenseFlowAmount(add_amtTB.Text);
             }
 
             try
