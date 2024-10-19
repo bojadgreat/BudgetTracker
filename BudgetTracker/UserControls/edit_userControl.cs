@@ -28,6 +28,8 @@ namespace BudgetTracker.UserControls
 
             var e_edit = db.GetCashFlowData();
             
+            //e_edit = e_edit.Sel
+            
         }
 
         private void user_cancel_button_Click(object sender, EventArgs e)
@@ -44,14 +46,10 @@ namespace BudgetTracker.UserControls
                 // Assuming the ComboBox is holding integer values in its items
                 int id = Convert.ToInt32(entryEdit_id_cBox.SelectedItem.ToString());
 
+                DBUtil db = new DBUtil();
+
                 // Create a new instance of the cashFlowDataSet for fetching
-                cashFlowDataSet cfds = new cashFlowDataSet();
-
-                // Initialize the TableAdapter
-                cash_flow_tableTableAdapter tableAdapter = new cash_flow_tableTableAdapter();
-
-                // Call Fill() method on the TableAdapter to populate the dataset
-                tableAdapter.Fill(cfds.cash_flow_table);
+                cashFlowDataSet cfds = DBUtil.Get_cfds();
 
                 var flowData = new cashflow_model();
 
