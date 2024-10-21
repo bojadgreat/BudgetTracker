@@ -64,7 +64,7 @@ namespace BudgetTracker.Models
             else
             {
                 flow_amount = (float)Math.Round(Convert.ToDouble(amountOut), 2); // Set the flow_amount only if parsing is successful
-                return false;
+                return true;
             }
         }
         

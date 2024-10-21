@@ -18,9 +18,6 @@ namespace BudgetTracker
 {
     public partial class Dashboard : Form
     {
-        
-        
-
         public Dashboard()
         {
             InitializeComponent();
@@ -40,7 +37,7 @@ namespace BudgetTracker
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Dashboard_Load(object sender, EventArgs e)
         {
             reloadData();
         }
@@ -64,19 +61,19 @@ namespace BudgetTracker
             // Add data points to remaining balance
             foreach (var data in dateTotals)
             {
-                ser1.Points.AddXY(data.ent_date, data.ent_tot_amount); // X is date, Y is total
+                ser1.Points.AddXY(data.ent_date, data.ent_exp_amount + data.ent_inc_amount); // X is date, Y is total
             }
 
             // Add data points to income
             foreach (var data in dateIncome)
             {
-                ser2.Points.AddXY(data.ent_date, data.ent_inc_amount); // X is date, Y is total
+                ser2.Points.AddXY(data.ent_date, data.ent_inc_amount); // X is date, Y is total income
             }
 
             // Add data points to expenses
             foreach (var data in dateExpense)
             {
-                ser3.Points.AddXY(data.ent_date, data.ent_exp_amount); // X is date, Y is total
+                ser3.Points.AddXY(data.ent_date, data.ent_exp_amount); // X is date, Y is total expenses for that date
             }
 
             // Optionally, format the chart axes.
@@ -95,18 +92,36 @@ namespace BudgetTracker
 
             List<date_total> date_Totals = new List<date_total>();
 
+            // Variables to track running totals
+            float runningIncome = 0;
+            float runningExpenses = 0;
+
             var groupedData = cfds.cash_flow_table
                 .GroupBy(t => t.Flow_datetime.Date)  // Group by date
                 .Select(g => new date_total
                 {
-                    ent_date = g.Key,                // The date
-                    ent_tot_amount = (float)g.Sum(t => t.Flow_amount) // Sum the Flow_amount for that date
+                    ent_date = g.Key,  // The date
+                                       // Calculate the sum for income and expenses separately
+                    ent_inc_amount = (float)g.Where(t => t.Flow_amount > 0).Sum(t => t.Flow_amount),    // Income (positive flow)
+                    ent_exp_amount = (float)g.Where(t => t.Flow_amount < 0).Sum(t => t.Flow_amount)   // Expenses (negative flow)
                 })
+                .OrderBy(dt => dt.ent_date)  // Order by date to ensure the correct running total sequence
                 .ToList();
 
-            // Add all the grouped data to the date_Totals list.
-            date_Totals.AddRange(groupedData);
-            
+            // Calculate the running totals and update the list
+            foreach (var entry in groupedData)
+            {
+                runningIncome += entry.ent_inc_amount;
+                runningExpenses += entry.ent_exp_amount;
+
+                date_Totals.Add(new date_total
+                {
+                    ent_date = entry.ent_date,
+                    ent_inc_amount = runningIncome,    // Cumulative income
+                    ent_exp_amount = runningExpenses // Cumulative expenses
+                });
+            }
+
             return date_Totals;
         }
 

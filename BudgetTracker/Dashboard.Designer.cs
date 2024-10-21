@@ -246,7 +246,7 @@
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Budget Tracker";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cash_flowDataGridView)).EndInit();
             this.general_panel.ResumeLayout(false);
             this.info_panel.ResumeLayout(false);

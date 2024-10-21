@@ -21,9 +21,16 @@ namespace BudgetTracker.UserControls
 
         private void user_cancel_button_Click(object sender, EventArgs e)
         {
-            Form tmp = this.FindForm();
+            Form tmp = FindForm();
             tmp.Close();
             tmp.Dispose();
+
+            // Bring the dashboard back to normal
+            Dashboard dashboard = Application.OpenForms["Dashboard"] as Dashboard;
+            if (dashboard != null)
+            {
+                dashboard.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void user_add_button_Click(object sender, EventArgs e)
