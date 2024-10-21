@@ -24,12 +24,57 @@ namespace BudgetTracker.UserControls
 
         private void user_edit_button_Click(object sender, EventArgs e)
         {
-            DBUtil db = new DBUtil();
+            var e_edit = new cashflow_model();
 
-            var e_edit = db.GetCashFlowData();
+            // Assuming the ComboBox is holding integer values in its items
+            int id = Convert.ToInt32(entryEdit_id_cBox.SelectedItem.ToString());
+
+            // Validate description
+            if (!e_edit.SetFlowDescription(edit_descTB.Text))
+            {
+                return; // Stop execution if invalid
+            }
+
+            // Validate type
+            if (!e_edit.SetFlowType(entryEdit_id_cBox.Text))
+            {
+                return; // Stop execution if invalid
+            }
+
+            // Validate amount
+            if (!e_edit.SetFlowAmount(edit_amtTB.Text))
+            {
+                return; // Stop execution if invalid
+            }
+
             
-            //e_edit = e_edit.Sel
-            
+
+            e_edit.SetEditFlowDescription(edit_descTB.Text);
+            e_edit.SetEditFlowType(edit_typeCbox.SelectedItem.ToString());
+            e_edit.SetEditFlowDatetime(edit_dateDTP.Value);
+            e_edit.SetEditFlowTimestamp(DateTime.Now);
+
+            if (e_edit.flow_type == "Expense")
+            {
+                e_edit.SetExpenseFlowAmount(edit_amtTB.Text);
+            }
+            else
+            {
+                e_edit.SetEditFlowAmount((float)Convert.ToDouble(edit_amtTB.Text));
+            }
+
+            try
+            {
+                cash_flow_tableTableAdapter cflow = new cash_flow_tableTableAdapter();
+                // Add new entry to the database
+                cflow.Update(e_edit.flow_description, e_edit.flow_amount, e_edit.flow_type, e_edit.flow_datetime, e_edit.flow_timestamp, id);
+
+                MessageBox.Show("Entry edited successfully", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void user_cancel_button_Click(object sender, EventArgs e)
@@ -37,6 +82,13 @@ namespace BudgetTracker.UserControls
             Form tmp = this.FindForm();
             tmp.Close();
             tmp.Dispose();
+
+            // Bring the dashboard back to normal
+            Dashboard dashboard = Application.OpenForms["Dashboard"] as Dashboard;
+            if (dashboard != null)
+            {
+                dashboard.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void entryEdit_id_cBox_SelectedIndexChanged(object sender, EventArgs e)
