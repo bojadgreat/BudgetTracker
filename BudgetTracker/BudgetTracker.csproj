@@ -297,12 +297,6 @@
     <Compile Include="UserControls\add_userControl.Designer.cs">
       <DependentUpon>add_userControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\delete_userControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\delete_userControl.Designer.cs">
-      <DependentUpon>delete_userControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\edit_userControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -334,9 +328,6 @@
     </Compile>
     <EmbeddedResource Include="UserControls\add_userControl.resx">
       <DependentUpon>add_userControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\delete_userControl.resx">
-      <DependentUpon>delete_userControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\edit_userControl.resx">
       <DependentUpon>edit_userControl.cs</DependentUpon>

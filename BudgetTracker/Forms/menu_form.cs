@@ -22,10 +22,6 @@ namespace BudgetTracker.Forms
                     UserControls.add_userControl user_add = new UserControls.add_userControl();
                     addUserControl(user_add);
                     break;
-                case "delete":
-                    UserControls.delete_userControl user_delete = new UserControls.delete_userControl();
-                    addUserControl(user_delete);
-                    break;
                 case "edit":
                     UserControls.edit_userControl user_edit = new UserControls.edit_userControl();
                     addUserControl(user_edit);

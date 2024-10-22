@@ -23,6 +23,7 @@ namespace BudgetTracker
             InitializeComponent();
             date_label.Text = DateTime.Now.ToString("yyyy-MM-dd");
             updateClock();
+
         }
         
         private async void updateClock()
@@ -193,6 +194,26 @@ namespace BudgetTracker
             var menuForm = new Forms.menu_form("edit");
             menuForm.Show();
             menuForm.FormClosed += (s, ev) => reloadData();
+        }
+
+        private void delete_cashflow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cash_flowDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            // Clear previous row highlighting
+            foreach (DataGridViewRow row in cash_flowDataGridView.Rows)
+            {
+                row.DefaultCellStyle.BackColor = Color.White; // or any default color
+            }
+
+            // Highlight the current row
+            if (e.RowIndex >= 0) // Ensure the row index is valid
+            {
+                cash_flowDataGridView.Rows[cash_flowDataGridView.CurrentCell.RowIndex].DefaultCellStyle.BackColor = Color.LightSkyBlue; // Highlight color
+            }
         }
     }
 }
