@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace BudgetTracker
 {
@@ -96,8 +97,13 @@ namespace BudgetTracker
             // Variables to track running totals
             float runningIncome = 0;
             float runningExpenses = 0;
+            
+            
+            DateTime today = DateTime.Now;
+            DateTime fourDaysAgo = today.AddDays(-4);
 
             var groupedData = cfds.cash_flow_table
+                .Where(t => t.Flow_datetime >= fourDaysAgo)
                 .GroupBy(t => t.Flow_datetime.Date)  // Group by date
                 .Select(g => new date_total
                 {
@@ -132,7 +138,11 @@ namespace BudgetTracker
 
             List<date_income> date_Income = new List<date_income>();
 
+            DateTime today = DateTime.Now;
+            DateTime fourDaysAgo = today.AddDays(-4);
+
             var groupedData = cfds.cash_flow_table
+                .Where(t => t.Flow_datetime >= fourDaysAgo)
                 .GroupBy(t => t.Flow_datetime.Date)  // Group by date
                 .Select(g => new date_income
                 {
@@ -152,8 +162,12 @@ namespace BudgetTracker
             var cfds = DBUtil.Get_cfds();
 
             List<date_expense> date_Expense = new List<date_expense>();
+            
+            DateTime today = DateTime.Now;
+            DateTime fourDaysAgo = today.AddDays(-4);
 
             var groupedData = cfds.cash_flow_table
+                .Where(t => t.Flow_datetime >= fourDaysAgo)
                 .GroupBy(t => t.Flow_datetime.Date)  // Group by date
                 .Select(g => new date_expense
                 {
@@ -178,7 +192,10 @@ namespace BudgetTracker
         private void reloadData()
         {
             cash_flow_tableTableAdapter cft = new cash_flow_tableTableAdapter();
-            cash_flowDataGridView.DataSource = cft.GetData();
+            DataTable dataTable = cft.GetData();
+            
+            
+            cash_flowDataGridView.DataSource = dataTable.AsEnumerable().OrderBy(t => t.Field<DateTime>("Flow_datetime")).CopyToDataTable();
 
             dgvSetHeadTextColumn("Entry ID", 0, cash_flowDataGridView);
             dgvSetHeadTextColumn("Entry Description", 1, cash_flowDataGridView);
@@ -198,10 +215,30 @@ namespace BudgetTracker
 
         private void delete_cashflow_Click(object sender, EventArgs e)
         {
+            var idSelected = cash_flowDataGridView.CurrentRow.Cells[0].Value;
 
+            DialogResult dialogResult = MessageBox.Show("Do you want to delete selected entry?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if(dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    cash_flow_tableTableAdapter cflow = new cash_flow_tableTableAdapter();
+                    // Add new entry to the database
+                    cflow.Delete(Convert.ToInt32(idSelected));
+
+                    MessageBox.Show("Entry deleted successfully", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    reloadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
-        private void cash_flowDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        private void cash_flowDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Clear previous row highlighting
             foreach (DataGridViewRow row in cash_flowDataGridView.Rows)

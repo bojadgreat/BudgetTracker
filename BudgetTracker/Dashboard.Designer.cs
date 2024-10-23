@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel2 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel3 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.cash_flowDataGridView = new System.Windows.Forms.DataGridView();
             this.general_panel = new System.Windows.Forms.Panel();
             this.info_panel = new System.Windows.Forms.Panel();
@@ -72,7 +72,7 @@
             this.cash_flowDataGridView.Name = "cash_flowDataGridView";
             this.cash_flowDataGridView.Size = new System.Drawing.Size(1034, 422);
             this.cash_flowDataGridView.TabIndex = 1;
-            this.cash_flowDataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.cash_flowDataGridView_CellEnter);
+            this.cash_flowDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cash_flowDataGridView_CellClick);
             // 
             // general_panel
             // 
@@ -188,28 +188,28 @@
             // cashFlowChart
             // 
             this.cashFlowChart.BackColor = System.Drawing.SystemColors.Control;
-            chartArea2.AxisX.CustomLabels.Add(customLabel2);
-            chartArea2.Name = "total_cashflow_chart";
-            this.cashFlowChart.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.SystemColors.Control;
-            legend2.Name = "Legend1";
-            legend2.Title = "Legend";
-            this.cashFlowChart.Legends.Add(legend2);
+            chartArea3.AxisX.CustomLabels.Add(customLabel3);
+            chartArea3.Name = "total_cashflow_chart";
+            this.cashFlowChart.ChartAreas.Add(chartArea3);
+            legend3.BackColor = System.Drawing.SystemColors.Control;
+            legend3.Name = "Legend1";
+            legend3.Title = "Legend";
+            this.cashFlowChart.Legends.Add(legend3);
             this.cashFlowChart.Location = new System.Drawing.Point(230, 3);
             this.cashFlowChart.Name = "cashFlowChart";
-            series4.ChartArea = "total_cashflow_chart";
-            series4.Legend = "Legend1";
-            series4.Name = "Remaining Balance";
-            series4.YValuesPerPoint = 4;
-            series5.ChartArea = "total_cashflow_chart";
-            series5.Legend = "Legend1";
-            series5.Name = "Income";
-            series6.ChartArea = "total_cashflow_chart";
-            series6.Legend = "Legend1";
-            series6.Name = "Expenses";
-            this.cashFlowChart.Series.Add(series4);
-            this.cashFlowChart.Series.Add(series5);
-            this.cashFlowChart.Series.Add(series6);
+            series7.ChartArea = "total_cashflow_chart";
+            series7.Legend = "Legend1";
+            series7.Name = "Remaining Balance";
+            series7.YValuesPerPoint = 4;
+            series8.ChartArea = "total_cashflow_chart";
+            series8.Legend = "Legend1";
+            series8.Name = "Income";
+            series9.ChartArea = "total_cashflow_chart";
+            series9.Legend = "Legend1";
+            series9.Name = "Expenses";
+            this.cashFlowChart.Series.Add(series7);
+            this.cashFlowChart.Series.Add(series8);
+            this.cashFlowChart.Series.Add(series9);
             this.cashFlowChart.Size = new System.Drawing.Size(395, 211);
             this.cashFlowChart.TabIndex = 0;
             this.cashFlowChart.Text = "chart1";

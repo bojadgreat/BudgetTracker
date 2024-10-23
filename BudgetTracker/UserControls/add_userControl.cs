@@ -26,8 +26,7 @@ namespace BudgetTracker.UserControls
             tmp.Dispose();
 
             // Bring the dashboard back to normal
-            Dashboard dashboard = Application.OpenForms["Dashboard"] as Dashboard;
-            if (dashboard != null)
+            if (Application.OpenForms["Dashboard"] is Dashboard dashboard)
             {
                 dashboard.WindowState = FormWindowState.Normal;
             }
