@@ -57,13 +57,14 @@ namespace BudgetTracker
             Series ser3 = cashFlowChart.Series["Expenses"];
 
             ser1.Points.Clear();
-            ser2.Points.Clear();
+            ser2.Points.Clear();    
             ser3.Points.Clear();
+
 
             // Add data points to remaining balance
             foreach (var data in dateTotals)
             {
-                ser1.Points.AddXY(data.ent_date, data.ent_exp_amount + data.ent_inc_amount); // X is date, Y is total
+                ser1.Points.AddXY(data.ent_date, Math.Abs(data.ent_exp_amount + data.ent_inc_amount)); // X is date, Y is total
             }
 
             // Add data points to income
@@ -85,6 +86,8 @@ namespace BudgetTracker
 
             // Recalculate axis scale based on the new data
             cashFlowChart.ChartAreas[0].RecalculateAxesScale();
+
+            cashFlowChart.Invalidate();
         }
         
 
@@ -103,14 +106,13 @@ namespace BudgetTracker
             DateTime fourDaysAgo = today.AddDays(-4);
 
             var groupedData = cfds.cash_flow_table
-                .Where(t => t.Flow_datetime >= fourDaysAgo)
                 .GroupBy(t => t.Flow_datetime.Date)  // Group by date
                 .Select(g => new date_total
                 {
                     ent_date = g.Key,  // The date
                                        // Calculate the sum for income and expenses separately
-                    ent_inc_amount = (float)g.Where(t => t.Flow_amount > 0).Sum(t => t.Flow_amount),    // Income (positive flow)
-                    ent_exp_amount = (float)g.Where(t => t.Flow_amount < 0).Sum(t => t.Flow_amount)   // Expenses (negative flow)
+                    ent_inc_amount = (float)g.Where(t => t.Flow_type == "Income").Sum(t => t.Flow_amount),    // Income (positive flow)
+                    ent_exp_amount = (float)g.Where(t => t.Flow_type == "Expense").Sum(t => t.Flow_amount)   // Expenses (negative flow)
                 })
                 .OrderBy(dt => dt.ent_date)  // Order by date to ensure the correct running total sequence
                 .ToList();
