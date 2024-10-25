@@ -195,15 +195,26 @@ namespace BudgetTracker
         {
             cash_flow_tableTableAdapter cft = new cash_flow_tableTableAdapter();
             DataTable dataTable = cft.GetData();
-            
-            
-            cash_flowDataGridView.DataSource = dataTable.AsEnumerable().OrderBy(t => t.Field<DateTime>("Flow_datetime")).CopyToDataTable();
 
-            dgvSetHeadTextColumn("Entry ID", 0, cash_flowDataGridView);
-            dgvSetHeadTextColumn("Entry Description", 1, cash_flowDataGridView);
-            dgvSetHeadTextColumn("Entry Amount", 2, cash_flowDataGridView);
-            dgvSetHeadTextColumn("Entry Date", 3, cash_flowDataGridView);
-            dgvSetHeadTextColumn("Entry Timestamp", 4, cash_flowDataGridView);
+            var filteredData = dataTable.AsEnumerable().Where(t => t.Field<DateTime>("Flow_datetime").Month == DateTime.Now.Month);
+
+
+            if (filteredData.Any())
+            {
+                cash_flowDataGridView.DataSource = filteredData.OrderBy(t => t.Field<DateTime>("Flow_datetime")).CopyToDataTable();
+
+                dgvSetHeadTextColumn("Entry ID", 0, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Description", 1, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Amount", 2, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Date", 3, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Timestamp", 4, cash_flowDataGridView);
+            }
+            else
+            {
+                cash_flowDataGridView.DataSource = null;
+            }
+
+            
 
             initialize_chart(chartTotal(), chartInc(), chartExp());
         }
@@ -253,6 +264,11 @@ namespace BudgetTracker
             {
                 cash_flowDataGridView.Rows[cash_flowDataGridView.CurrentCell.RowIndex].DefaultCellStyle.BackColor = Color.LightSkyBlue; // Highlight color
             }
+        }
+
+        private void history_button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
