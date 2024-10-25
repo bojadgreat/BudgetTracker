@@ -16,5 +16,11 @@ namespace BudgetTracker.UserControls
         {
             InitializeComponent();
         }
+        
+        public void loadcBox()
+        {
+            hist_date_cbox.Items.Clear();
+            
+        }
     }
 }

@@ -26,7 +26,8 @@ namespace BudgetTracker
             updateClock();
 
         }
-        
+
+        #region DASHBOARD FUNCTIONALITY
         private async void updateClock()
         {
             while (true)
@@ -48,7 +49,52 @@ namespace BudgetTracker
         {
             dgvCol.Columns[colInd].HeaderText = headText;
         }
-        
+
+        private void reloadData()
+        {
+            cash_flow_tableTableAdapter cft = new cash_flow_tableTableAdapter();
+            DataTable dataTable = cft.GetData();
+
+            var filteredData = dataTable.AsEnumerable().Where(t => t.Field<DateTime>("Flow_datetime").Month == DateTime.Now.Month);
+
+
+            if (filteredData.Any())
+            {
+                cash_flowDataGridView.DataSource = filteredData.OrderBy(t => t.Field<DateTime>("Flow_datetime")).CopyToDataTable();
+
+                dgvSetHeadTextColumn("Entry ID", 0, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Description", 1, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Amount", 2, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Date", 3, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Timestamp", 4, cash_flowDataGridView);
+            }
+            else
+            {
+                cash_flowDataGridView.DataSource = null;
+            }
+
+
+
+            initialize_chart(chartTotal(), chartInc(), chartExp());
+        }
+
+        private void cash_flowDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Clear previous row highlighting
+            foreach (DataGridViewRow row in cash_flowDataGridView.Rows)
+            {
+                row.DefaultCellStyle.BackColor = Color.White; // or any default color
+            }
+
+            // Highlight the current row
+            if (e.RowIndex >= 0) // Ensure the row index is valid
+            {
+                cash_flowDataGridView.Rows[cash_flowDataGridView.CurrentCell.RowIndex].DefaultCellStyle.BackColor = Color.LightSkyBlue; // Highlight color
+            }
+        }
+        #endregion
+
+        #region CHART
         //chart initialization
         private void initialize_chart(List<date_total> dateTotals, List<date_income> dateIncome, List<date_expense> dateExpense)
         {
@@ -183,49 +229,27 @@ namespace BudgetTracker
 
             return date_Expense;
         }
+        #endregion
 
+        #region ADD
         private void add_button_Click(object sender, EventArgs e)
         {
             var menuForm = new Forms.menu_form("add");
             menuForm.Show();
             menuForm.FormClosed += (s, ev) => reloadData();
         }
-        
-        private void reloadData()
-        {
-            cash_flow_tableTableAdapter cft = new cash_flow_tableTableAdapter();
-            DataTable dataTable = cft.GetData();
+        #endregion
 
-            var filteredData = dataTable.AsEnumerable().Where(t => t.Field<DateTime>("Flow_datetime").Month == DateTime.Now.Month);
-
-
-            if (filteredData.Any())
-            {
-                cash_flowDataGridView.DataSource = filteredData.OrderBy(t => t.Field<DateTime>("Flow_datetime")).CopyToDataTable();
-
-                dgvSetHeadTextColumn("Entry ID", 0, cash_flowDataGridView);
-                dgvSetHeadTextColumn("Entry Description", 1, cash_flowDataGridView);
-                dgvSetHeadTextColumn("Entry Amount", 2, cash_flowDataGridView);
-                dgvSetHeadTextColumn("Entry Date", 3, cash_flowDataGridView);
-                dgvSetHeadTextColumn("Entry Timestamp", 4, cash_flowDataGridView);
-            }
-            else
-            {
-                cash_flowDataGridView.DataSource = null;
-            }
-
-            
-
-            initialize_chart(chartTotal(), chartInc(), chartExp());
-        }
-
+        #region EDIT
         private void edit_button_Click(object sender, EventArgs e)
         {
             var menuForm = new Forms.menu_form("edit");
             menuForm.Show();
             menuForm.FormClosed += (s, ev) => reloadData();
         }
+        #endregion
 
+        #region DELETE
         private void delete_cashflow_Click(object sender, EventArgs e)
         {
             var idSelected = cash_flowDataGridView.CurrentRow.Cells[0].Value;
@@ -250,25 +274,15 @@ namespace BudgetTracker
                 }
             }
         }
+        #endregion
 
-        private void cash_flowDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Clear previous row highlighting
-            foreach (DataGridViewRow row in cash_flowDataGridView.Rows)
-            {
-                row.DefaultCellStyle.BackColor = Color.White; // or any default color
-            }
-
-            // Highlight the current row
-            if (e.RowIndex >= 0) // Ensure the row index is valid
-            {
-                cash_flowDataGridView.Rows[cash_flowDataGridView.CurrentCell.RowIndex].DefaultCellStyle.BackColor = Color.LightSkyBlue; // Highlight color
-            }
-        }
-
+        #region HISTORY
         private void history_button_Click(object sender, EventArgs e)
         {
-
+            var menuForm = new Forms.menu_form("history");
+            menuForm.Show();
+            menuForm.FormClosed += (s, ev) => reloadData();
         }
+        #endregion
     }
 }
