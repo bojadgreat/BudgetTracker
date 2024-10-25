@@ -1,4 +1,5 @@
 ﻿using BudgetTracker.cashFlowDataSetTableAdapters;
+using BudgetTracker.cashFlowHistDataSetTableAdapters;
 using BudgetTracker.Models;
 using BudgetTracker.Utilities;
 using System;
@@ -152,6 +153,7 @@ namespace BudgetTracker
             DateTime fourDaysAgo = today.AddDays(-4);
 
             var groupedData = cfds.cash_flow_table
+                //.Where(t => t.Flow_datetime >= fourDaysAgo)
                 .GroupBy(t => t.Flow_datetime.Date)  // Group by date
                 .Select(g => new date_total
                 {
@@ -190,7 +192,7 @@ namespace BudgetTracker
             DateTime fourDaysAgo = today.AddDays(-4);
 
             var groupedData = cfds.cash_flow_table
-                .Where(t => t.Flow_datetime >= fourDaysAgo)
+                //.Where(t => t.Flow_datetime >= fourDaysAgo)
                 .GroupBy(t => t.Flow_datetime.Date)  // Group by date
                 .Select(g => new date_income
                 {
@@ -198,7 +200,7 @@ namespace BudgetTracker
                     ent_inc_amount = (float)g.Where(t => t.Flow_type == "Income").Sum(t => t.Flow_amount) // Sum the Flow_amount for that date and type
                 })
                 .ToList();
-
+            
             // Add all the grouped data to the date_Totals list.
             date_Income.AddRange(groupedData);
 
@@ -215,7 +217,7 @@ namespace BudgetTracker
             DateTime fourDaysAgo = today.AddDays(-4);
 
             var groupedData = cfds.cash_flow_table
-                .Where(t => t.Flow_datetime >= fourDaysAgo)
+                //.Where(t => t.Flow_datetime >= fourDaysAgo)
                 .GroupBy(t => t.Flow_datetime.Date)  // Group by date
                 .Select(g => new date_expense
                 {
@@ -252,17 +254,38 @@ namespace BudgetTracker
         #region DELETE
         private void delete_cashflow_Click(object sender, EventArgs e)
         {
+            cashflow_history_model cfhm = new cashflow_history_model();
+
             var idSelected = cash_flowDataGridView.CurrentRow.Cells[0].Value;
 
-            DialogResult dialogResult = MessageBox.Show("Do you want to delete selected entry?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var cfds = DBUtil.Get_cfds();
+
+            var cSelected = cfds.cash_flow_table.Where(t => t.Flow_ID == Convert.ToInt32(idSelected)).Select(t => t).ToList();
             
-            if(dialogResult == DialogResult.Yes)
+            foreach (var sel in cSelected)
+            {
+                cfhm.flow_id = sel.Flow_ID;
+                cfhm.flow_description = sel.Flow_description;
+                cfhm.flow_amount = (float)sel.Flow_amount;
+                cfhm.flow_datetime = sel.Flow_datetime;
+                cfhm.flow_type = sel.Flow_type;
+                cfhm.flow_timestamp = sel.Flow_timestamp;
+            }
+            
+            DialogResult dialogResult = MessageBox.Show("Do you want to delete selected entry?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+            if (dialogResult == DialogResult.Yes)
             {
                 try
                 {
                     cash_flow_tableTableAdapter cflow = new cash_flow_tableTableAdapter();
+                    cash_flow_historyTableAdapter chist = new cash_flow_historyTableAdapter();
+                    
                     // Add new entry to the database
                     cflow.Delete(Convert.ToInt32(idSelected));
+                    //Add new entry to history database
+                    chist.Insert(cfhm.flow_description, cfhm.flow_amount, cfhm.flow_datetime, DateTime.Now, "DELETE ENTRY", cfhm.flow_type);
 
                     MessageBox.Show("Entry deleted successfully", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

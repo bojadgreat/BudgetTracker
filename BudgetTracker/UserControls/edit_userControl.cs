@@ -1,4 +1,5 @@
 ﻿using BudgetTracker.cashFlowDataSetTableAdapters;
+using BudgetTracker.cashFlowHistDataSetTableAdapters;
 using BudgetTracker.Models;
 using BudgetTracker.Utilities;
 using System;
@@ -66,8 +67,14 @@ namespace BudgetTracker.UserControls
             try
             {
                 cash_flow_tableTableAdapter cflow = new cash_flow_tableTableAdapter();
+                cash_flow_historyTableAdapter chist = new cash_flow_historyTableAdapter();
+                
+                
                 // Add new entry to the database
                 cflow.Update(e_edit.flow_description, e_edit.flow_amount, e_edit.flow_type, e_edit.flow_datetime, e_edit.flow_timestamp, id);
+
+                //Add new entry to history database
+                chist.Insert(e_edit.flow_description, e_edit.flow_amount, e_edit.flow_datetime, DateTime.Now, "EDIT ENTRY", e_edit.flow_type);
 
                 MessageBox.Show("Entry edited successfully", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
