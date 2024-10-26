@@ -8,7 +8,7 @@ namespace BudgetTracker.Models
 {
     internal class date_expense
     {
-        public DateTime ent_date { get; set; }
-        public float ent_exp_amount { get; set; }   
+        //public DateTime ent_date { get; set; }
+        public float tot_exp { get; set; }   
     }
 }
