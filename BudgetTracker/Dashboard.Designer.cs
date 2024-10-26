@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel2 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel1 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.cash_flowDataGridView = new System.Windows.Forms.DataGridView();
             this.general_panel = new System.Windows.Forms.Panel();
             this.info_panel = new System.Windows.Forms.Panel();
@@ -188,31 +188,35 @@
             // cashFlowChart
             // 
             this.cashFlowChart.BackColor = System.Drawing.SystemColors.Control;
-            customLabel2.ForeColor = System.Drawing.Color.Black;
-            chartArea2.AxisX.CustomLabels.Add(customLabel2);
-            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea2.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
-            chartArea2.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
-            chartArea2.AxisX.LabelStyle.Interval = 0D;
-            chartArea2.AxisX.LabelStyle.IntervalOffset = 0D;
-            chartArea2.AxisX.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea2.AxisX.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea2.Name = "total_cashflow_chart";
-            this.cashFlowChart.ChartAreas.Add(chartArea2);
+            customLabel1.ForeColor = System.Drawing.Color.Black;
+            chartArea1.AxisX.CustomLabels.Add(customLabel1);
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
+            chartArea1.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
+            chartArea1.AxisX.LabelAutoFitMinFontSize = 5;
+            chartArea1.AxisX.LabelStyle.Angle = -90;
+            chartArea1.AxisX.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Weeks;
+            chartArea1.AxisX.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Weeks;
+            chartArea1.BackColor = System.Drawing.SystemColors.Control;
+            chartArea1.Name = "total_cashflow_chart";
+            this.cashFlowChart.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.SystemColors.Control;
+            legend1.Name = "legend";
+            this.cashFlowChart.Legends.Add(legend1);
             this.cashFlowChart.Location = new System.Drawing.Point(230, 3);
             this.cashFlowChart.Name = "cashFlowChart";
-            series4.ChartArea = "total_cashflow_chart";
-            series4.Name = "Remaining Balance";
-            series5.ChartArea = "total_cashflow_chart";
-            series5.Name = "Income";
-            series6.ChartArea = "total_cashflow_chart";
-            series6.Name = "Expenses";
-            this.cashFlowChart.Series.Add(series4);
-            this.cashFlowChart.Series.Add(series5);
-            this.cashFlowChart.Series.Add(series6);
+            series1.ChartArea = "total_cashflow_chart";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "legend";
+            series1.Name = "Report";
+            this.cashFlowChart.Series.Add(series1);
             this.cashFlowChart.Size = new System.Drawing.Size(395, 211);
             this.cashFlowChart.TabIndex = 0;
-            this.cashFlowChart.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "chartTitle";
+            title1.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Emboss;
+            this.cashFlowChart.Titles.Add(title1);
             // 
             // table_panel
             // 

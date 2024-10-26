@@ -99,37 +99,42 @@ namespace BudgetTracker
         //chart initialization
         private void initialize_chart(List<date_total> dateTotals, List<date_income> dateIncome, List<date_expense> dateExpense)
         {
-            Series ser1 = cashFlowChart.Series["Remaining Balance"];
-            Series ser2 = cashFlowChart.Series["Income"];
-            Series ser3 = cashFlowChart.Series["Expenses"];
+            //// Add data points to remaining balance
+            //foreach (var data in dateTotals)
+            //{
+            //    ser1.Points.AddXY(data.ent_date, Math.Abs(data.ent_exp_amount + data.ent_inc_amount)); // X is date, Y is total
+            //}
 
-            ser1.Points.Clear();
-            ser2.Points.Clear();    
-            ser3.Points.Clear();
-
-
-            // Add data points to remaining balance
+            cashFlowChart.Series["Report"].IsValueShownAsLabel = true;
+            
             foreach (var data in dateTotals)
             {
-                ser1.Points.AddXY(data.ent_date, Math.Abs(data.ent_exp_amount + data.ent_inc_amount)); // X is date, Y is total
+                cashFlowChart.Series["Report"].Points.AddXY("Remaining Balance", $"{data.rem_total:0.00}");
             }
 
             // Add data points to income
             foreach (var data in dateIncome)
             {
-                ser2.Points.AddXY(data.ent_date, data.ent_inc_amount); // X is date, Y is total income
+                cashFlowChart.Series["Report"].Points.AddXY($"Total Income for {DateTime.Now.ToString("MMMM")}", $"{data.tot_inc:0.00}");
             }
 
             // Add data points to expenses
             foreach (var data in dateExpense)
             {
-                ser3.Points.AddXY(data.ent_date, data.ent_exp_amount); // X is date, Y is total expenses for that date
+                cashFlowChart.Series["Report"].Points.AddXY($"Total Expenses for {DateTime.Now.ToString("MMMM")}", $"{data.tot_exp:0.00}"); 
             }
 
             // Optionally, format the chart axes.
-            cashFlowChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy"; // Format X-axis labels as dates
-            cashFlowChart.ChartAreas[0].AxisX.Title = "Date";
-            cashFlowChart.ChartAreas[0].AxisY.Title = "Amount";
+            //cashFlowChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy"; // Format X-axis labels as dates
+            //cashFlowChart.ChartAreas[0].AxisX.Title = "Date";
+            //cashFlowChart.ChartAreas[0].AxisY.Title = "Amount";
+
+            //cashFlowChart.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
+            //cashFlowChart.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
+
+            cashFlowChart.Titles[0].Text = $"Report for the month of {DateTime.Now.ToString("MMMM")}";
+            //ser2.LegendText = "Total Income for this month";
+            //ser3.LegendText = "Total Expenses for this month"; 
 
             // Recalculate axis scale based on the new data
             cashFlowChart.ChartAreas[0].RecalculateAxesScale();
@@ -145,39 +150,46 @@ namespace BudgetTracker
             List<date_total> date_Totals = new List<date_total>();
 
             // Variables to track running totals
-            float runningIncome = 0;
-            float runningExpenses = 0;
+            //float runningIncome = 0;
+            //float runningExpenses = 0;
             
             
-            DateTime today = DateTime.Now;
-            DateTime fourDaysAgo = today.AddDays(-4);
+            //DateTime today = DateTime.Now;
+            //DateTime fourDaysAgo = today.AddDays(-4);
 
-            var groupedData = cfds.cash_flow_table
-                //.Where(t => t.Flow_datetime >= fourDaysAgo)
-                .GroupBy(t => t.Flow_datetime.Date)  // Group by date
-                .Select(g => new date_total
-                {
-                    ent_date = g.Key,  // The date
-                                       // Calculate the sum for income and expenses separately
-                    ent_inc_amount = (float)g.Where(t => t.Flow_type == "Income").Sum(t => t.Flow_amount),    // Income (positive flow)
-                    ent_exp_amount = (float)g.Where(t => t.Flow_type == "Expense").Sum(t => t.Flow_amount)   // Expenses (negative flow)
-                })
-                .OrderBy(dt => dt.ent_date)  // Order by date to ensure the correct running total sequence
-                .ToList();
 
-            // Calculate the running totals and update the list
-            foreach (var entry in groupedData)
+            date_total dt = new date_total
             {
-                runningIncome += entry.ent_inc_amount;
-                runningExpenses += entry.ent_exp_amount;
+                rem_total = (float)cfds.cash_flow_table
+                .Sum(t => t.Flow_amount)
+            };
+            
+            //.GroupBy(t => t.Flow_datetime.Date)  // Group by date
+            //.Select(g => new date_total
+            //{
+            //    ent_date = g.Key,  // The date
+            //    // Calculate the sum for income and expenses separately
+            //    ent_inc_amount = (float)g.Where(t => t.Flow_type == "Income").Sum(t => t.Flow_amount),    // Income (positive flow)
+            //    ent_exp_amount = (float)g.Where(t => t.Flow_type == "Expense").Sum(t => t.Flow_amount)   // Expenses (negative flow)
+            //})
+            //.OrderBy(dt => dt.ent_date)  // Order by date to ensure the correct running total sequence
+            //.ToList();
 
-                date_Totals.Add(new date_total
-                {
-                    ent_date = entry.ent_date,
-                    ent_inc_amount = runningIncome,    // Cumulative income
-                    ent_exp_amount = runningExpenses // Cumulative expenses
-                });
-            }
+            //// Calculate the running totals and update the list
+            //foreach (var entry in groupedData)
+            //{
+            //    runningIncome += entry.ent_inc_amount;
+            //    runningExpenses += entry.ent_exp_amount;
+
+            //    date_Totals.Add(new date_total
+            //    {
+            //        //ent_date = entry.ent_date,
+            //        ent_inc_amount = runningIncome,    // Cumulative income
+            //        ent_exp_amount = runningExpenses // Cumulative expenses
+            //    });
+            //}
+
+            date_Totals.Add(dt);
 
             return date_Totals;
         }
@@ -188,21 +200,28 @@ namespace BudgetTracker
 
             List<date_income> date_Income = new List<date_income>();
 
-            DateTime today = DateTime.Now;
-            DateTime fourDaysAgo = today.AddDays(-4);
+            //DateTime today = DateTime.Now;
+            //DateTime fourDaysAgo = today.AddDays(-4);
 
-            var groupedData = cfds.cash_flow_table
-                //.Where(t => t.Flow_datetime >= fourDaysAgo)
-                .GroupBy(t => t.Flow_datetime.Date)  // Group by date
-                .Select(g => new date_income
-                {
-                    ent_date = g.Key,                // The date
-                    ent_inc_amount = (float)g.Where(t => t.Flow_type == "Income").Sum(t => t.Flow_amount) // Sum the Flow_amount for that date and type
-                })
-                .ToList();
-            
+            date_income di = new date_income
+            {
+                tot_inc = (float)cfds.cash_flow_table
+                .Where(t => t.Flow_datetime.Month == DateTime.Now.Month && t.Flow_type == "Income")
+                .Sum(t => t.Flow_amount)
+            };
+
+            //var groupedData = cfds.cash_flow_table
+            //    //.Where(t => t.Flow_datetime >= fourDaysAgo)
+            //    .GroupBy(t => t.Flow_datetime.Date)  // Group by date
+            //    .Select(g => new date_income
+            //    {
+            //        ent_date = g.Key,                // The date
+            //        ent_inc_amount = (float)g.Where(t => t.Flow_type == "Income").Sum(t => t.Flow_amount) // Sum the Flow_amount for that date and type
+            //    })
+            //    .ToList();
+
             // Add all the grouped data to the date_Totals list.
-            date_Income.AddRange(groupedData);
+            date_Income.Add(di);
 
             return date_Income;
         }
@@ -212,22 +231,29 @@ namespace BudgetTracker
             var cfds = DBUtil.Get_cfds();
 
             List<date_expense> date_Expense = new List<date_expense>();
-            
-            DateTime today = DateTime.Now;
-            DateTime fourDaysAgo = today.AddDays(-4);
 
-            var groupedData = cfds.cash_flow_table
-                //.Where(t => t.Flow_datetime >= fourDaysAgo)
-                .GroupBy(t => t.Flow_datetime.Date)  // Group by date
-                .Select(g => new date_expense
-                {
-                    ent_date = g.Key,                // The date
-                    ent_exp_amount = ((float)g.Where(t => t.Flow_type == "Expense").Sum(t => t.Flow_amount)) * -1 // Sum the Flow_amount for that date and type
-                })
-                .ToList();
+            date_expense de = new date_expense
+            {
+                tot_exp = (float)cfds.cash_flow_table
+                .Where(t => t.Flow_datetime.Month == DateTime.Now.Month && t.Flow_type == "Expense")
+                .Sum(t => t.Flow_amount) * -1
+            };
+
+            //DateTime today = DateTime.Now;
+            //DateTime fourDaysAgo = today.AddDays(-4);
+
+            //var groupedData = cfds.cash_flow_table
+            //    //.Where(t => t.Flow_datetime >= fourDaysAgo)
+            //    .GroupBy(t => t.Flow_datetime.Date)  // Group by date
+            //    .Select(g => new date_expense
+            //    {
+            //        ent_date = g.Key,                // The date
+            //        ent_exp_amount = ((float)g.Where(t => t.Flow_type == "Expense").Sum(t => t.Flow_amount)) * -1 // Sum the Flow_amount for that date and type
+            //    })
+            //    .ToList();
 
             // Add all the grouped data to the date_Totals list.
-            date_Expense.AddRange(groupedData);
+            date_Expense.Add(de);
 
             return date_Expense;
         }
