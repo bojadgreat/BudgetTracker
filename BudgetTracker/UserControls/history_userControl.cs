@@ -37,8 +37,9 @@ namespace BudgetTracker.UserControls
             //cashFlowHistDataSet cfhs = DBUtil.Get_cfhs();
             cash_flow_historyTableAdapter cfht = new cash_flow_historyTableAdapter();
             DataTable dataTable = cfht.GetData();
+            DateTime date = Convert.ToDateTime(hist_date_cbox.Text);
 
-            var filteredData = dataTable.AsEnumerable().Where(t => t.Field<DateTime>("Flow_datetime").Month == DateTime.Now.Month);
+            var filteredData = dataTable.AsEnumerable().Where(t => t.Field<DateTime>("Flow_datetime").Date == date);
 
             if (filteredData.Any())
             {
@@ -49,6 +50,8 @@ namespace BudgetTracker.UserControls
                 dgvSetHeadTextColumn("Entry Amount", 2, hist_dgv);
                 dgvSetHeadTextColumn("Entry Date", 3, hist_dgv);
                 dgvSetHeadTextColumn("Entry Timestamp", 4, hist_dgv);
+                dgvSetHeadTextColumn("Entry Operation", 5, hist_dgv);
+                dgvSetHeadTextColumn("Entry Type", 6, hist_dgv);
             }
             else
             {
