@@ -419,10 +419,10 @@ namespace BudgetTracker {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public cash_flow_historyRow Addcash_flow_historyRow(int flow_id, string flow_description, double flow_amount, System.DateTime flow_datetime, System.DateTime flow_timestamp, string flow_operation, string flow_type) {
+            public cash_flow_historyRow Addcash_flow_historyRow(string flow_description, double flow_amount, System.DateTime flow_datetime, System.DateTime flow_timestamp, string flow_operation, string flow_type) {
                 cash_flow_historyRow rowcash_flow_historyRow = ((cash_flow_historyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        flow_id,
+                        null,
                         flow_description,
                         flow_amount,
                         flow_datetime,
@@ -486,6 +486,8 @@ namespace BudgetTracker {
                 base.Columns.Add(this.columnflow_type);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnflow_id}, true));
+                this.columnflow_id.AutoIncrement = true;
+                this.columnflow_id.AutoIncrementSeed = 1;
                 this.columnflow_id.AllowDBNull = false;
                 this.columnflow_id.Unique = true;
                 this.columnflow_description.AllowDBNull = false;
@@ -895,15 +897,17 @@ namespace BudgetTracker.cashFlowHistDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[cash_flow_history] ([flow_id], [flow_description], [flow_amount], [flow_datetime], [flow_timestamp], [flow_operation], [flow_type]) VALUES (@flow_id, @flow_description, @flow_amount, @flow_datetime, @flow_timestamp, @flow_operation, @flow_type);
-SELECT flow_id, flow_description, flow_amount, flow_datetime, flow_timestamp, flow_operation, flow_type FROM cash_flow_history WHERE (flow_id = @flow_id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO cash_flow_history\r\n                         (flow_description, flow_a" +
+                "mount, flow_datetime, flow_timestamp, flow_operation, flow_type)\r\nVALUES        " +
+                "(@flow_description,@flow_amount,@flow_datetime,@flow_timestamp,@flow_operation,@" +
+                "flow_type)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_datetime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_datetime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_timestamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_timestamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_operation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_operation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_description", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "flow_description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_amount", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "flow_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_datetime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "flow_datetime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_timestamp", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "flow_timestamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_operation", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "flow_operation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_type", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "flow_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[cash_flow_history] SET [flow_id] = @flow_id, [flow_description] = @flow_description, [flow_amount] = @flow_amount, [flow_datetime] = @flow_datetime, [flow_timestamp] = @flow_timestamp, [flow_operation] = @flow_operation, [flow_type] = @flow_type WHERE (([flow_id] = @Original_flow_id) AND ([flow_description] = @Original_flow_description) AND ([flow_amount] = @Original_flow_amount) AND ([flow_datetime] = @Original_flow_datetime) AND ([flow_timestamp] = @Original_flow_timestamp) AND ([flow_operation] = @Original_flow_operation) AND ([flow_type] = @Original_flow_type));

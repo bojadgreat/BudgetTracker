@@ -285,6 +285,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>cashFlowDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="cashFlowDataSet1.cs">
+      <DependentUpon>cashFlowDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="cashFlowDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

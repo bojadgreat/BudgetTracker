@@ -18,7 +18,11 @@ namespace BudgetTracker.UserControls
         {
             InitializeComponent();
             loadcBox();
-            loadTable();
+            if(hist_date_cbox.Text != "")
+            {
+                loadTable();
+            }
+            
         }
 
         private void loadcBox()
@@ -37,9 +41,21 @@ namespace BudgetTracker.UserControls
             //cashFlowHistDataSet cfhs = DBUtil.Get_cfhs();
             cash_flow_historyTableAdapter cfht = new cash_flow_historyTableAdapter();
             DataTable dataTable = cfht.GetData();
-            DateTime date = Convert.ToDateTime(hist_date_cbox.Text);
 
-            var filteredData = dataTable.AsEnumerable().Where(t => t.Field<DateTime>("Flow_datetime").Date == date);
+            var filteredData = dataTable.AsEnumerable().Select(t => t);     
+
+            if (hist_date_cbox.Text == "All Time")
+            {
+                filteredData = dataTable.AsEnumerable().Select(t => t);
+            }
+            else
+            {
+                DateTime date = Convert.ToDateTime(hist_date_cbox.Text);
+                filteredData = dataTable.AsEnumerable().Where(t => t.Field<DateTime>("Flow_datetime").Date == date);
+            }
+            
+
+            
 
             if (filteredData.Any())
             {
