@@ -80,6 +80,7 @@
             // 
             // hist_dgv
             // 
+            this.hist_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.hist_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hist_dgv.Location = new System.Drawing.Point(3, 46);
             this.hist_dgv.Name = "hist_dgv";
