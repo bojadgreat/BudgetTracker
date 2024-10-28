@@ -98,7 +98,7 @@ namespace BudgetTracker
 
         #region CHART
         //chart initialization
-        private void initialize_chart(List<date_total> dateTotals, List<date_income> dateIncome, List<date_expense> dateExpense)
+        private void initialize_chart(List<date_total> dateTotals, List<date_income> dateIncome, List<date_expense> dateExpense 
         {
             //// Add data points to remaining balance
             //foreach (var data in dateTotals)
@@ -106,6 +106,8 @@ namespace BudgetTracker
             //    ser1.Points.AddXY(data.ent_date, Math.Abs(data.ent_exp_amount + data.ent_inc_amount)); // X is date, Y is total
             //}
 
+
+            cashFlowChart.Series["Report"].Points.Clear();
             cashFlowChart.Series["Report"].IsValueShownAsLabel = true;
             
             foreach (var data in dateTotals)
