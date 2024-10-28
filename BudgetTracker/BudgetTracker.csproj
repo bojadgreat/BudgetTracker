@@ -293,6 +293,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>cashFlowDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="cashFlowHistoryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cashFlowHistoryDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,6 +382,17 @@
     </None>
     <None Include="cashFlowDataSet1.xss">
       <DependentUpon>cashFlowDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="cashFlowHistoryDataSet.xsc">
+      <DependentUpon>cashFlowHistoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="cashFlowHistoryDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cashFlowHistoryDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cashFlowHistoryDataSet.xss">
+      <DependentUpon>cashFlowHistoryDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

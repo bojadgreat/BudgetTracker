@@ -1,5 +1,6 @@
 ﻿using BudgetTracker.cashFlowDataSetTableAdapters;
 using BudgetTracker.cashFlowHistDataSetTableAdapters;
+using BudgetTracker.cashFlowHistoryDataSetTableAdapters;
 using BudgetTracker.Models;
 using BudgetTracker.Utilities;
 using System;
@@ -306,12 +307,13 @@ namespace BudgetTracker
                 try
                 {
                     cash_flow_tableTableAdapter cflow = new cash_flow_tableTableAdapter();
-                    cash_flow_historyTableAdapter chist = new cash_flow_historyTableAdapter();
-                    
+                    //cash_flow_historyTableAdapter chist = new cash_flow_historyTableAdapter();
+                    cash_flow_histTableAdapter cHist = new cash_flow_histTableAdapter();
+
                     // Add new entry to the database
                     cflow.Delete(Convert.ToInt32(idSelected));
                     //Add new entry to history database
-                    chist.Insert(cfhm.flow_description, cfhm.flow_amount, cfhm.flow_datetime, DateTime.Now, "DELETE ENTRY", cfhm.flow_type);
+                    cHist.Insert(cfhm.flow_description, cfhm.flow_amount, cfhm.flow_datetime, DateTime.Now, "DELETE ENTRY", cfhm.flow_type);
 
                     MessageBox.Show("Entry deleted successfully", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

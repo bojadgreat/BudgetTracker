@@ -1,4 +1,5 @@
 ﻿using BudgetTracker.cashFlowHistDataSetTableAdapters;
+using BudgetTracker.cashFlowHistoryDataSetTableAdapters;
 using BudgetTracker.Utilities;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,8 @@ namespace BudgetTracker.UserControls
         private void loadTable()
         {
             //cashFlowHistDataSet cfhs = DBUtil.Get_cfhs();
-            cash_flow_historyTableAdapter cfht = new cash_flow_historyTableAdapter();
+            cash_flow_histTableAdapter cfht = new cash_flow_histTableAdapter();
+            
             DataTable dataTable = cfht.GetData();
 
             var filteredData = dataTable.AsEnumerable().Select(t => t);     

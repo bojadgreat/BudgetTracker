@@ -20,17 +20,17 @@ namespace BudgetTracker {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("cashFlowDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("cashFlowHistoryDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class cashFlowDataSet : global::System.Data.DataSet {
+    public partial class cashFlowHistoryDataSet : global::System.Data.DataSet {
         
-        private cash_flow_tableDataTable tablecash_flow_table;
+        private cash_flow_histDataTable tablecash_flow_hist;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public cashFlowDataSet() {
+        public cashFlowHistoryDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace BudgetTracker {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected cashFlowDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected cashFlowHistoryDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace BudgetTracker {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["cash_flow_table"] != null)) {
-                    base.Tables.Add(new cash_flow_tableDataTable(ds.Tables["cash_flow_table"]));
+                if ((ds.Tables["cash_flow_hist"] != null)) {
+                    base.Tables.Add(new cash_flow_histDataTable(ds.Tables["cash_flow_hist"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace BudgetTracker {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public cash_flow_tableDataTable cash_flow_table {
+        public cash_flow_histDataTable cash_flow_hist {
             get {
-                return this.tablecash_flow_table;
+                return this.tablecash_flow_hist;
             }
         }
         
@@ -127,7 +127,7 @@ namespace BudgetTracker {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            cashFlowDataSet cln = ((cashFlowDataSet)(base.Clone()));
+            cashFlowHistoryDataSet cln = ((cashFlowHistoryDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace BudgetTracker {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["cash_flow_table"] != null)) {
-                    base.Tables.Add(new cash_flow_tableDataTable(ds.Tables["cash_flow_table"]));
+                if ((ds.Tables["cash_flow_hist"] != null)) {
+                    base.Tables.Add(new cash_flow_histDataTable(ds.Tables["cash_flow_hist"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace BudgetTracker {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablecash_flow_table = ((cash_flow_tableDataTable)(base.Tables["cash_flow_table"]));
+            this.tablecash_flow_hist = ((cash_flow_histDataTable)(base.Tables["cash_flow_hist"]));
             if ((initTable == true)) {
-                if ((this.tablecash_flow_table != null)) {
-                    this.tablecash_flow_table.InitVars();
+                if ((this.tablecash_flow_hist != null)) {
+                    this.tablecash_flow_hist.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace BudgetTracker {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "cashFlowDataSet";
+            this.DataSetName = "cashFlowHistoryDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/cashFlowDataSet.xsd";
+            this.Namespace = "http://tempuri.org/cashFlowHistoryDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablecash_flow_table = new cash_flow_tableDataTable();
-            base.Tables.Add(this.tablecash_flow_table);
+            this.tablecash_flow_hist = new cash_flow_histDataTable();
+            base.Tables.Add(this.tablecash_flow_hist);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializecash_flow_table() {
+        private bool ShouldSerializecash_flow_hist() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace BudgetTracker {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            cashFlowDataSet ds = new cashFlowDataSet();
+            cashFlowHistoryDataSet ds = new cashFlowHistoryDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,31 +270,33 @@ namespace BudgetTracker {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void cash_flow_tableRowChangeEventHandler(object sender, cash_flow_tableRowChangeEvent e);
+        public delegate void cash_flow_histRowChangeEventHandler(object sender, cash_flow_histRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class cash_flow_tableDataTable : global::System.Data.TypedTableBase<cash_flow_tableRow> {
+        public partial class cash_flow_histDataTable : global::System.Data.TypedTableBase<cash_flow_histRow> {
             
-            private global::System.Data.DataColumn columnFlow_ID;
+            private global::System.Data.DataColumn columnflow_id;
             
-            private global::System.Data.DataColumn columnFlow_description;
+            private global::System.Data.DataColumn columnflow_description;
             
-            private global::System.Data.DataColumn columnFlow_amount;
+            private global::System.Data.DataColumn columnflow_amount;
             
-            private global::System.Data.DataColumn columnFlow_type;
+            private global::System.Data.DataColumn columnflow_datetime;
             
-            private global::System.Data.DataColumn columnFlow_datetime;
+            private global::System.Data.DataColumn columnflow_timestamp;
             
-            private global::System.Data.DataColumn columnFlow_timestamp;
+            private global::System.Data.DataColumn columnflow_type;
+            
+            private global::System.Data.DataColumn columnflow_operation;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public cash_flow_tableDataTable() {
-                this.TableName = "cash_flow_table";
+            public cash_flow_histDataTable() {
+                this.TableName = "cash_flow_hist";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -302,7 +304,7 @@ namespace BudgetTracker {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal cash_flow_tableDataTable(global::System.Data.DataTable table) {
+            internal cash_flow_histDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -319,56 +321,64 @@ namespace BudgetTracker {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected cash_flow_tableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected cash_flow_histDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Flow_IDColumn {
+            public global::System.Data.DataColumn flow_idColumn {
                 get {
-                    return this.columnFlow_ID;
+                    return this.columnflow_id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Flow_descriptionColumn {
+            public global::System.Data.DataColumn flow_descriptionColumn {
                 get {
-                    return this.columnFlow_description;
+                    return this.columnflow_description;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Flow_amountColumn {
+            public global::System.Data.DataColumn flow_amountColumn {
                 get {
-                    return this.columnFlow_amount;
+                    return this.columnflow_amount;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Flow_typeColumn {
+            public global::System.Data.DataColumn flow_datetimeColumn {
                 get {
-                    return this.columnFlow_type;
+                    return this.columnflow_datetime;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Flow_datetimeColumn {
+            public global::System.Data.DataColumn flow_timestampColumn {
                 get {
-                    return this.columnFlow_datetime;
+                    return this.columnflow_timestamp;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Flow_timestampColumn {
+            public global::System.Data.DataColumn flow_typeColumn {
                 get {
-                    return this.columnFlow_timestamp;
+                    return this.columnflow_type;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn flow_operationColumn {
+                get {
+                    return this.columnflow_operation;
                 }
             }
             
@@ -383,57 +393,58 @@ namespace BudgetTracker {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public cash_flow_tableRow this[int index] {
+            public cash_flow_histRow this[int index] {
                 get {
-                    return ((cash_flow_tableRow)(this.Rows[index]));
+                    return ((cash_flow_histRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event cash_flow_tableRowChangeEventHandler cash_flow_tableRowChanging;
+            public event cash_flow_histRowChangeEventHandler cash_flow_histRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event cash_flow_tableRowChangeEventHandler cash_flow_tableRowChanged;
+            public event cash_flow_histRowChangeEventHandler cash_flow_histRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event cash_flow_tableRowChangeEventHandler cash_flow_tableRowDeleting;
+            public event cash_flow_histRowChangeEventHandler cash_flow_histRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event cash_flow_tableRowChangeEventHandler cash_flow_tableRowDeleted;
+            public event cash_flow_histRowChangeEventHandler cash_flow_histRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Addcash_flow_tableRow(cash_flow_tableRow row) {
+            public void Addcash_flow_histRow(cash_flow_histRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public cash_flow_tableRow Addcash_flow_tableRow(string Flow_description, double Flow_amount, string Flow_type, System.DateTime Flow_datetime, System.DateTime Flow_timestamp) {
-                cash_flow_tableRow rowcash_flow_tableRow = ((cash_flow_tableRow)(this.NewRow()));
+            public cash_flow_histRow Addcash_flow_histRow(string flow_description, double flow_amount, System.DateTime flow_datetime, System.DateTime flow_timestamp, string flow_type, string flow_operation) {
+                cash_flow_histRow rowcash_flow_histRow = ((cash_flow_histRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Flow_description,
-                        Flow_amount,
-                        Flow_type,
-                        Flow_datetime,
-                        Flow_timestamp};
-                rowcash_flow_tableRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowcash_flow_tableRow);
-                return rowcash_flow_tableRow;
+                        flow_description,
+                        flow_amount,
+                        flow_datetime,
+                        flow_timestamp,
+                        flow_type,
+                        flow_operation};
+                rowcash_flow_histRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcash_flow_histRow);
+                return rowcash_flow_histRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public cash_flow_tableRow FindByFlow_ID(int Flow_ID) {
-                return ((cash_flow_tableRow)(this.Rows.Find(new object[] {
-                            Flow_ID})));
+            public cash_flow_histRow FindByflow_id(int flow_id) {
+                return ((cash_flow_histRow)(this.Rows.Find(new object[] {
+                            flow_id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                cash_flow_tableDataTable cln = ((cash_flow_tableDataTable)(base.Clone()));
+                cash_flow_histDataTable cln = ((cash_flow_histDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -441,75 +452,75 @@ namespace BudgetTracker {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new cash_flow_tableDataTable();
+                return new cash_flow_histDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnFlow_ID = base.Columns["Flow_ID"];
-                this.columnFlow_description = base.Columns["Flow_description"];
-                this.columnFlow_amount = base.Columns["Flow_amount"];
-                this.columnFlow_type = base.Columns["Flow_type"];
-                this.columnFlow_datetime = base.Columns["Flow_datetime"];
-                this.columnFlow_timestamp = base.Columns["Flow_timestamp"];
+                this.columnflow_id = base.Columns["flow_id"];
+                this.columnflow_description = base.Columns["flow_description"];
+                this.columnflow_amount = base.Columns["flow_amount"];
+                this.columnflow_datetime = base.Columns["flow_datetime"];
+                this.columnflow_timestamp = base.Columns["flow_timestamp"];
+                this.columnflow_type = base.Columns["flow_type"];
+                this.columnflow_operation = base.Columns["flow_operation"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnFlow_ID = new global::System.Data.DataColumn("Flow_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlow_ID);
-                this.columnFlow_description = new global::System.Data.DataColumn("Flow_description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlow_description);
-                this.columnFlow_amount = new global::System.Data.DataColumn("Flow_amount", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlow_amount);
-                this.columnFlow_type = new global::System.Data.DataColumn("Flow_type", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlow_type);
-                this.columnFlow_datetime = new global::System.Data.DataColumn("Flow_datetime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlow_datetime);
-                this.columnFlow_timestamp = new global::System.Data.DataColumn("Flow_timestamp", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlow_timestamp);
+                this.columnflow_id = new global::System.Data.DataColumn("flow_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnflow_id);
+                this.columnflow_description = new global::System.Data.DataColumn("flow_description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnflow_description);
+                this.columnflow_amount = new global::System.Data.DataColumn("flow_amount", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnflow_amount);
+                this.columnflow_datetime = new global::System.Data.DataColumn("flow_datetime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnflow_datetime);
+                this.columnflow_timestamp = new global::System.Data.DataColumn("flow_timestamp", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnflow_timestamp);
+                this.columnflow_type = new global::System.Data.DataColumn("flow_type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnflow_type);
+                this.columnflow_operation = new global::System.Data.DataColumn("flow_operation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnflow_operation);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnFlow_ID}, true));
-                this.columnFlow_ID.AutoIncrement = true;
-                this.columnFlow_ID.AutoIncrementSeed = -1;
-                this.columnFlow_ID.AutoIncrementStep = -1;
-                this.columnFlow_ID.AllowDBNull = false;
-                this.columnFlow_ID.ReadOnly = true;
-                this.columnFlow_ID.Unique = true;
-                this.columnFlow_description.AllowDBNull = false;
-                this.columnFlow_description.MaxLength = 50;
-                this.columnFlow_amount.AllowDBNull = false;
-                this.columnFlow_type.AllowDBNull = false;
-                this.columnFlow_type.MaxLength = 50;
-                this.columnFlow_datetime.AllowDBNull = false;
+                                this.columnflow_id}, true));
+                this.columnflow_id.AutoIncrement = true;
+                this.columnflow_id.AutoIncrementSeed = -1;
+                this.columnflow_id.AutoIncrementStep = -1;
+                this.columnflow_id.AllowDBNull = false;
+                this.columnflow_id.ReadOnly = true;
+                this.columnflow_id.Unique = true;
+                this.columnflow_description.MaxLength = 50;
+                this.columnflow_type.MaxLength = 50;
+                this.columnflow_operation.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public cash_flow_tableRow Newcash_flow_tableRow() {
-                return ((cash_flow_tableRow)(this.NewRow()));
+            public cash_flow_histRow Newcash_flow_histRow() {
+                return ((cash_flow_histRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new cash_flow_tableRow(builder);
+                return new cash_flow_histRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(cash_flow_tableRow);
+                return typeof(cash_flow_histRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.cash_flow_tableRowChanged != null)) {
-                    this.cash_flow_tableRowChanged(this, new cash_flow_tableRowChangeEvent(((cash_flow_tableRow)(e.Row)), e.Action));
+                if ((this.cash_flow_histRowChanged != null)) {
+                    this.cash_flow_histRowChanged(this, new cash_flow_histRowChangeEvent(((cash_flow_histRow)(e.Row)), e.Action));
                 }
             }
             
@@ -517,8 +528,8 @@ namespace BudgetTracker {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.cash_flow_tableRowChanging != null)) {
-                    this.cash_flow_tableRowChanging(this, new cash_flow_tableRowChangeEvent(((cash_flow_tableRow)(e.Row)), e.Action));
+                if ((this.cash_flow_histRowChanging != null)) {
+                    this.cash_flow_histRowChanging(this, new cash_flow_histRowChangeEvent(((cash_flow_histRow)(e.Row)), e.Action));
                 }
             }
             
@@ -526,8 +537,8 @@ namespace BudgetTracker {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.cash_flow_tableRowDeleted != null)) {
-                    this.cash_flow_tableRowDeleted(this, new cash_flow_tableRowChangeEvent(((cash_flow_tableRow)(e.Row)), e.Action));
+                if ((this.cash_flow_histRowDeleted != null)) {
+                    this.cash_flow_histRowDeleted(this, new cash_flow_histRowChangeEvent(((cash_flow_histRow)(e.Row)), e.Action));
                 }
             }
             
@@ -535,14 +546,14 @@ namespace BudgetTracker {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.cash_flow_tableRowDeleting != null)) {
-                    this.cash_flow_tableRowDeleting(this, new cash_flow_tableRowChangeEvent(((cash_flow_tableRow)(e.Row)), e.Action));
+                if ((this.cash_flow_histRowDeleting != null)) {
+                    this.cash_flow_histRowDeleting(this, new cash_flow_histRowChangeEvent(((cash_flow_histRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Removecash_flow_tableRow(cash_flow_tableRow row) {
+            public void Removecash_flow_histRow(cash_flow_histRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -551,7 +562,7 @@ namespace BudgetTracker {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                cashFlowDataSet ds = new cashFlowDataSet();
+                cashFlowHistoryDataSet ds = new cashFlowHistoryDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -569,7 +580,7 @@ namespace BudgetTracker {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "cash_flow_tableDataTable";
+                attribute2.FixedValue = "cash_flow_histDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -613,98 +624,194 @@ namespace BudgetTracker {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class cash_flow_tableRow : global::System.Data.DataRow {
+        public partial class cash_flow_histRow : global::System.Data.DataRow {
             
-            private cash_flow_tableDataTable tablecash_flow_table;
+            private cash_flow_histDataTable tablecash_flow_hist;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal cash_flow_tableRow(global::System.Data.DataRowBuilder rb) : 
+            internal cash_flow_histRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablecash_flow_table = ((cash_flow_tableDataTable)(this.Table));
+                this.tablecash_flow_hist = ((cash_flow_histDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Flow_ID {
+            public int flow_id {
                 get {
-                    return ((int)(this[this.tablecash_flow_table.Flow_IDColumn]));
+                    return ((int)(this[this.tablecash_flow_hist.flow_idColumn]));
                 }
                 set {
-                    this[this.tablecash_flow_table.Flow_IDColumn] = value;
+                    this[this.tablecash_flow_hist.flow_idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Flow_description {
-                get {
-                    return ((string)(this[this.tablecash_flow_table.Flow_descriptionColumn]));
-                }
-                set {
-                    this[this.tablecash_flow_table.Flow_descriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Flow_amount {
-                get {
-                    return ((double)(this[this.tablecash_flow_table.Flow_amountColumn]));
-                }
-                set {
-                    this[this.tablecash_flow_table.Flow_amountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Flow_type {
-                get {
-                    return ((string)(this[this.tablecash_flow_table.Flow_typeColumn]));
-                }
-                set {
-                    this[this.tablecash_flow_table.Flow_typeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Flow_datetime {
-                get {
-                    return ((global::System.DateTime)(this[this.tablecash_flow_table.Flow_datetimeColumn]));
-                }
-                set {
-                    this[this.tablecash_flow_table.Flow_datetimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Flow_timestamp {
+            public string flow_description {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablecash_flow_table.Flow_timestampColumn]));
+                        return ((string)(this[this.tablecash_flow_hist.flow_descriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Flow_timestamp\' in table \'cash_flow_table\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'flow_description\' in table \'cash_flow_hist\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablecash_flow_table.Flow_timestampColumn] = value;
+                    this[this.tablecash_flow_hist.flow_descriptionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsFlow_timestampNull() {
-                return this.IsNull(this.tablecash_flow_table.Flow_timestampColumn);
+            public double flow_amount {
+                get {
+                    try {
+                        return ((double)(this[this.tablecash_flow_hist.flow_amountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'flow_amount\' in table \'cash_flow_hist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecash_flow_hist.flow_amountColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetFlow_timestampNull() {
-                this[this.tablecash_flow_table.Flow_timestampColumn] = global::System.Convert.DBNull;
+            public System.DateTime flow_datetime {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablecash_flow_hist.flow_datetimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'flow_datetime\' in table \'cash_flow_hist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecash_flow_hist.flow_datetimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime flow_timestamp {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablecash_flow_hist.flow_timestampColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'flow_timestamp\' in table \'cash_flow_hist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecash_flow_hist.flow_timestampColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string flow_type {
+                get {
+                    try {
+                        return ((string)(this[this.tablecash_flow_hist.flow_typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'flow_type\' in table \'cash_flow_hist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecash_flow_hist.flow_typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string flow_operation {
+                get {
+                    try {
+                        return ((string)(this[this.tablecash_flow_hist.flow_operationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'flow_operation\' in table \'cash_flow_hist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecash_flow_hist.flow_operationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isflow_descriptionNull() {
+                return this.IsNull(this.tablecash_flow_hist.flow_descriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setflow_descriptionNull() {
+                this[this.tablecash_flow_hist.flow_descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isflow_amountNull() {
+                return this.IsNull(this.tablecash_flow_hist.flow_amountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setflow_amountNull() {
+                this[this.tablecash_flow_hist.flow_amountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isflow_datetimeNull() {
+                return this.IsNull(this.tablecash_flow_hist.flow_datetimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setflow_datetimeNull() {
+                this[this.tablecash_flow_hist.flow_datetimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isflow_timestampNull() {
+                return this.IsNull(this.tablecash_flow_hist.flow_timestampColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setflow_timestampNull() {
+                this[this.tablecash_flow_hist.flow_timestampColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isflow_typeNull() {
+                return this.IsNull(this.tablecash_flow_hist.flow_typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setflow_typeNull() {
+                this[this.tablecash_flow_hist.flow_typeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isflow_operationNull() {
+                return this.IsNull(this.tablecash_flow_hist.flow_operationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setflow_operationNull() {
+                this[this.tablecash_flow_hist.flow_operationColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -712,22 +819,22 @@ namespace BudgetTracker {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class cash_flow_tableRowChangeEvent : global::System.EventArgs {
+        public class cash_flow_histRowChangeEvent : global::System.EventArgs {
             
-            private cash_flow_tableRow eventRow;
+            private cash_flow_histRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public cash_flow_tableRowChangeEvent(cash_flow_tableRow row, global::System.Data.DataRowAction action) {
+            public cash_flow_histRowChangeEvent(cash_flow_histRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public cash_flow_tableRow Row {
+            public cash_flow_histRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -743,7 +850,7 @@ namespace BudgetTracker {
         }
     }
 }
-namespace BudgetTracker.cashFlowDataSetTableAdapters {
+namespace BudgetTracker.cashFlowHistoryDataSetTableAdapters {
     
     
     /// <summary>
@@ -755,7 +862,7 @@ namespace BudgetTracker.cashFlowDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class cash_flow_tableTableAdapter : global::System.ComponentModel.Component {
+    public partial class cash_flow_histTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -769,7 +876,7 @@ namespace BudgetTracker.cashFlowDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public cash_flow_tableTableAdapter() {
+        public cash_flow_histTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -866,44 +973,68 @@ namespace BudgetTracker.cashFlowDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "cash_flow_table";
-            tableMapping.ColumnMappings.Add("Flow_ID", "Flow_ID");
-            tableMapping.ColumnMappings.Add("Flow_description", "Flow_description");
-            tableMapping.ColumnMappings.Add("Flow_amount", "Flow_amount");
-            tableMapping.ColumnMappings.Add("Flow_type", "Flow_type");
-            tableMapping.ColumnMappings.Add("Flow_datetime", "Flow_datetime");
-            tableMapping.ColumnMappings.Add("Flow_timestamp", "Flow_timestamp");
+            tableMapping.DataSetTable = "cash_flow_hist";
+            tableMapping.ColumnMappings.Add("flow_id", "flow_id");
+            tableMapping.ColumnMappings.Add("flow_description", "flow_description");
+            tableMapping.ColumnMappings.Add("flow_amount", "flow_amount");
+            tableMapping.ColumnMappings.Add("flow_datetime", "flow_datetime");
+            tableMapping.ColumnMappings.Add("flow_timestamp", "flow_timestamp");
+            tableMapping.ColumnMappings.Add("flow_type", "flow_type");
+            tableMapping.ColumnMappings.Add("flow_operation", "flow_operation");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM cash_flow_table\r\nWHERE        (Flow_ID = @Original_Flow_ID)";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[cash_flow_hist] WHERE (([flow_id] = @Original_flow_id) AND ((@IsNull_flow_description = 1 AND [flow_description] IS NULL) OR ([flow_description] = @Original_flow_description)) AND ((@IsNull_flow_amount = 1 AND [flow_amount] IS NULL) OR ([flow_amount] = @Original_flow_amount)) AND ((@IsNull_flow_datetime = 1 AND [flow_datetime] IS NULL) OR ([flow_datetime] = @Original_flow_datetime)) AND ((@IsNull_flow_timestamp = 1 AND [flow_timestamp] IS NULL) OR ([flow_timestamp] = @Original_flow_timestamp)) AND ((@IsNull_flow_type = 1 AND [flow_type] IS NULL) OR ([flow_type] = @Original_flow_type)) AND ((@IsNull_flow_operation = 1 AND [flow_operation] IS NULL) OR ([flow_operation] = @Original_flow_operation)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Flow_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_datetime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_datetime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_datetime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_datetime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_timestamp", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_timestamp", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_timestamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_timestamp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_operation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_operation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_operation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_operation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO cash_flow_table
-                         (Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_timestamp)
-VALUES        (@Flow_description,@Flow_amount,@Flow_type,@Flow_datetime,@Flow_timestamp);  
-SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_timestamp FROM cash_flow_table WHERE (Flow_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[cash_flow_hist] ([flow_description], [flow_amount], [flow_datetime], [flow_timestamp], [flow_type], [flow_operation]) VALUES (@flow_description, @flow_amount, @flow_datetime, @flow_timestamp, @flow_type, @flow_operation);
+SELECT flow_id, flow_description, flow_amount, flow_datetime, flow_timestamp, flow_type, flow_operation FROM cash_flow_hist WHERE (flow_id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_description", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_amount", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_type", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_datetime", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_datetime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_timestamp", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_timestamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_datetime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_datetime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_timestamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_timestamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_operation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_operation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE       cash_flow_table
-SET                Flow_description = @Flow_description, Flow_amount = @Flow_amount, Flow_type = @Flow_type, Flow_datetime = @Flow_datetime, Flow_timestamp = @Flow_timestamp
-WHERE        (Flow_ID = @Flow_ID);       
-SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_timestamp FROM cash_flow_table WHERE (Flow_ID = @Flow_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[cash_flow_hist] SET [flow_description] = @flow_description, [flow_amount] = @flow_amount, [flow_datetime] = @flow_datetime, [flow_timestamp] = @flow_timestamp, [flow_type] = @flow_type, [flow_operation] = @flow_operation WHERE (([flow_id] = @Original_flow_id) AND ((@IsNull_flow_description = 1 AND [flow_description] IS NULL) OR ([flow_description] = @Original_flow_description)) AND ((@IsNull_flow_amount = 1 AND [flow_amount] IS NULL) OR ([flow_amount] = @Original_flow_amount)) AND ((@IsNull_flow_datetime = 1 AND [flow_datetime] IS NULL) OR ([flow_datetime] = @Original_flow_datetime)) AND ((@IsNull_flow_timestamp = 1 AND [flow_timestamp] IS NULL) OR ([flow_timestamp] = @Original_flow_timestamp)) AND ((@IsNull_flow_type = 1 AND [flow_type] IS NULL) OR ([flow_type] = @Original_flow_type)) AND ((@IsNull_flow_operation = 1 AND [flow_operation] IS NULL) OR ([flow_operation] = @Original_flow_operation)));
+SELECT flow_id, flow_description, flow_amount, flow_datetime, flow_timestamp, flow_type, flow_operation FROM cash_flow_hist WHERE (flow_id = @flow_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_description", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_amount", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_type", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_datetime", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_datetime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_timestamp", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_timestamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Flow_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Flow_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_datetime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_datetime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_timestamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_timestamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_operation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_operation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_datetime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_datetime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_datetime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_datetime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_timestamp", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_timestamp", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_timestamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_timestamp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_flow_operation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_operation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_flow_operation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "flow_operation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@flow_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "flow_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -919,8 +1050,8 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_tim" +
-                "estamp FROM dbo.cash_flow_table";
+            this._commandCollection[0].CommandText = "SELECT flow_id, flow_description, flow_amount, flow_datetime, flow_timestamp, flo" +
+                "w_type, flow_operation FROM dbo.cash_flow_hist";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -928,7 +1059,7 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(cashFlowDataSet.cash_flow_tableDataTable dataTable) {
+        public virtual int Fill(cashFlowHistoryDataSet.cash_flow_histDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -941,9 +1072,9 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual cashFlowDataSet.cash_flow_tableDataTable GetData() {
+        public virtual cashFlowHistoryDataSet.cash_flow_histDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            cashFlowDataSet.cash_flow_tableDataTable dataTable = new cashFlowDataSet.cash_flow_tableDataTable();
+            cashFlowHistoryDataSet.cash_flow_histDataTable dataTable = new cashFlowHistoryDataSet.cash_flow_histDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -951,15 +1082,15 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(cashFlowDataSet.cash_flow_tableDataTable dataTable) {
+        public virtual int Update(cashFlowHistoryDataSet.cash_flow_histDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(cashFlowDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "cash_flow_table");
+        public virtual int Update(cashFlowHistoryDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "cash_flow_hist");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -981,8 +1112,56 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Flow_ID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Flow_ID));
+        public virtual int Delete(int Original_flow_id, string Original_flow_description, global::System.Nullable<double> Original_flow_amount, global::System.Nullable<global::System.DateTime> Original_flow_datetime, global::System.Nullable<global::System.DateTime> Original_flow_timestamp, string Original_flow_type, string Original_flow_operation) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_flow_id));
+            if ((Original_flow_description == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_flow_description));
+            }
+            if ((Original_flow_amount.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((double)(Original_flow_amount.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_flow_datetime.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_flow_datetime.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_flow_timestamp.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_flow_timestamp.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_flow_type == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_flow_type));
+            }
+            if ((Original_flow_operation == null)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_flow_operation));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1003,26 +1182,42 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Flow_description, double Flow_amount, string Flow_type, System.DateTime Flow_datetime, global::System.Nullable<global::System.DateTime> Flow_timestamp) {
-            if ((Flow_description == null)) {
-                throw new global::System.ArgumentNullException("Flow_description");
+        public virtual int Insert(string flow_description, global::System.Nullable<double> flow_amount, global::System.Nullable<global::System.DateTime> flow_datetime, global::System.Nullable<global::System.DateTime> flow_timestamp, string flow_type, string flow_operation) {
+            if ((flow_description == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Flow_description));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(flow_description));
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((double)(Flow_amount));
-            if ((Flow_type == null)) {
-                throw new global::System.ArgumentNullException("Flow_type");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Flow_type));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Flow_datetime));
-            if ((Flow_timestamp.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(Flow_timestamp.Value));
+            if ((flow_amount.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((double)(flow_amount.Value));
             }
             else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((flow_datetime.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(flow_datetime.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((flow_timestamp.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(flow_timestamp.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((flow_type == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(flow_type));
+            }
+            if ((flow_operation == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(flow_operation));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1044,28 +1239,93 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Flow_description, double Flow_amount, string Flow_type, System.DateTime Flow_datetime, global::System.Nullable<global::System.DateTime> Flow_timestamp, int Flow_ID) {
-            if ((Flow_description == null)) {
-                throw new global::System.ArgumentNullException("Flow_description");
+        public virtual int Update(string flow_description, global::System.Nullable<double> flow_amount, global::System.Nullable<global::System.DateTime> flow_datetime, global::System.Nullable<global::System.DateTime> flow_timestamp, string flow_type, string flow_operation, int Original_flow_id, string Original_flow_description, global::System.Nullable<double> Original_flow_amount, global::System.Nullable<global::System.DateTime> Original_flow_datetime, global::System.Nullable<global::System.DateTime> Original_flow_timestamp, string Original_flow_type, string Original_flow_operation, int flow_id) {
+            if ((flow_description == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Flow_description));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(flow_description));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((double)(Flow_amount));
-            if ((Flow_type == null)) {
-                throw new global::System.ArgumentNullException("Flow_type");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Flow_type));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Flow_datetime));
-            if ((Flow_timestamp.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Flow_timestamp.Value));
+            if ((flow_amount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((double)(flow_amount.Value));
             }
             else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((flow_datetime.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(flow_datetime.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((flow_timestamp.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(flow_timestamp.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((flow_type == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Flow_ID));
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(flow_type));
+            }
+            if ((flow_operation == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(flow_operation));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_flow_id));
+            if ((Original_flow_description == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_flow_description));
+            }
+            if ((Original_flow_amount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(Original_flow_amount.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_flow_datetime.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_flow_datetime.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_flow_timestamp.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_flow_timestamp.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_flow_type == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_flow_type));
+            }
+            if ((Original_flow_operation == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_flow_operation));
+            }
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(flow_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1081,6 +1341,14 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
                 }
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string flow_description, global::System.Nullable<double> flow_amount, global::System.Nullable<global::System.DateTime> flow_datetime, global::System.Nullable<global::System.DateTime> flow_timestamp, string flow_type, string flow_operation, int Original_flow_id, string Original_flow_description, global::System.Nullable<double> Original_flow_amount, global::System.Nullable<global::System.DateTime> Original_flow_datetime, global::System.Nullable<global::System.DateTime> Original_flow_timestamp, string Original_flow_type, string Original_flow_operation) {
+            return this.Update(flow_description, flow_amount, flow_datetime, flow_timestamp, flow_type, flow_operation, Original_flow_id, Original_flow_description, Original_flow_amount, Original_flow_datetime, Original_flow_timestamp, Original_flow_type, Original_flow_operation, Original_flow_id);
+        }
     }
     
     /// <summary>
@@ -1095,7 +1363,7 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         
         private UpdateOrderOption _updateOrder;
         
-        private cash_flow_tableTableAdapter _cash_flow_tableTableAdapter;
+        private cash_flow_histTableAdapter _cash_flow_histTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1117,12 +1385,12 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public cash_flow_tableTableAdapter cash_flow_tableTableAdapter {
+        public cash_flow_histTableAdapter cash_flow_histTableAdapter {
             get {
-                return this._cash_flow_tableTableAdapter;
+                return this._cash_flow_histTableAdapter;
             }
             set {
-                this._cash_flow_tableTableAdapter = value;
+                this._cash_flow_histTableAdapter = value;
             }
         }
         
@@ -1145,9 +1413,9 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._cash_flow_tableTableAdapter != null) 
-                            && (this._cash_flow_tableTableAdapter.Connection != null))) {
-                    return this._cash_flow_tableTableAdapter.Connection;
+                if (((this._cash_flow_histTableAdapter != null) 
+                            && (this._cash_flow_histTableAdapter.Connection != null))) {
+                    return this._cash_flow_histTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1162,7 +1430,7 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._cash_flow_tableTableAdapter != null)) {
+                if ((this._cash_flow_histTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1174,14 +1442,14 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(cashFlowDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(cashFlowHistoryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._cash_flow_tableTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.cash_flow_table.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._cash_flow_histTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.cash_flow_hist.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._cash_flow_tableTableAdapter.Update(updatedRows));
+                    result = (result + this._cash_flow_histTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1193,13 +1461,13 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(cashFlowDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(cashFlowHistoryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._cash_flow_tableTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.cash_flow_table.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._cash_flow_histTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.cash_flow_hist.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._cash_flow_tableTableAdapter.Update(addedRows));
+                    result = (result + this._cash_flow_histTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1211,13 +1479,13 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(cashFlowDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(cashFlowHistoryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._cash_flow_tableTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.cash_flow_table.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._cash_flow_histTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.cash_flow_hist.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._cash_flow_tableTableAdapter.Update(deletedRows));
+                    result = (result + this._cash_flow_histTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1253,15 +1521,15 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(cashFlowDataSet dataSet) {
+        public virtual int UpdateAll(cashFlowHistoryDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._cash_flow_tableTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._cash_flow_tableTableAdapter.Connection) == false))) {
+            if (((this._cash_flow_histTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._cash_flow_histTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1297,13 +1565,13 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._cash_flow_tableTableAdapter != null)) {
-                    revertConnections.Add(this._cash_flow_tableTableAdapter, this._cash_flow_tableTableAdapter.Connection);
-                    this._cash_flow_tableTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._cash_flow_tableTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._cash_flow_tableTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._cash_flow_tableTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._cash_flow_tableTableAdapter.Adapter);
+                if ((this._cash_flow_histTableAdapter != null)) {
+                    revertConnections.Add(this._cash_flow_histTableAdapter, this._cash_flow_histTableAdapter.Connection);
+                    this._cash_flow_histTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._cash_flow_histTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._cash_flow_histTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._cash_flow_histTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._cash_flow_histTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1364,9 +1632,9 @@ SELECT Flow_ID, Flow_description, Flow_amount, Flow_type, Flow_datetime, Flow_ti
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._cash_flow_tableTableAdapter != null)) {
-                    this._cash_flow_tableTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._cash_flow_tableTableAdapter]));
-                    this._cash_flow_tableTableAdapter.Transaction = null;
+                if ((this._cash_flow_histTableAdapter != null)) {
+                    this._cash_flow_histTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._cash_flow_histTableAdapter]));
+                    this._cash_flow_histTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -1,5 +1,6 @@
 ﻿using BudgetTracker.cashFlowDataSetTableAdapters;
 using BudgetTracker.cashFlowHistDataSetTableAdapters;
+using BudgetTracker.cashFlowHistoryDataSetTableAdapters;
 using BudgetTracker.Forms;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace BudgetTracker.UserControls
         public add_userControl()
         {
             InitializeComponent();
+            add_dateDTP.Value = DateTime.Now;
         }
 
         private void user_cancel_button_Click(object sender, EventArgs e)
@@ -68,14 +70,15 @@ namespace BudgetTracker.UserControls
             try
             {
                 cash_flow_tableTableAdapter cflow = new cash_flow_tableTableAdapter();
-                cash_flow_historyTableAdapter chist = new cash_flow_historyTableAdapter();
-                
-                
+                //cash_flow_historyTableAdapter chist = new cash_flow_historyTableAdapter();
+                cash_flow_histTableAdapter cHist = new cash_flow_histTableAdapter();
+
+
                 // Add new entry to the database
                 cflow.Insert(new_ent.flow_description, new_ent.flow_amount, new_ent.flow_type, new_ent.flow_datetime, DateTime.Now);
 
                 //Add new entry to history database
-                chist.Insert(new_ent.flow_description, new_ent.flow_amount, new_ent.flow_datetime, DateTime.Now, "ADD ENTRY", new_ent.flow_type);
+                cHist.Insert(new_ent.flow_description, new_ent.flow_amount, new_ent.flow_datetime, DateTime.Now, "ADD ENTRY", new_ent.flow_type);
 
                 MessageBox.Show("Entry added successfully", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
