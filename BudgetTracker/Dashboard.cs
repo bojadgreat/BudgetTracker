@@ -67,8 +67,9 @@ namespace BudgetTracker
                 dgvSetHeadTextColumn("Entry ID", 0, cash_flowDataGridView);
                 dgvSetHeadTextColumn("Entry Description", 1, cash_flowDataGridView);
                 dgvSetHeadTextColumn("Entry Amount", 2, cash_flowDataGridView);
-                dgvSetHeadTextColumn("Entry Date", 3, cash_flowDataGridView);
-                dgvSetHeadTextColumn("Entry Timestamp", 4, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Type", 3, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Date", 4, cash_flowDataGridView);
+                dgvSetHeadTextColumn("Entry Timestamp", 5, cash_flowDataGridView);
             }
             else
             {
