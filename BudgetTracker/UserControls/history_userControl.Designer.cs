@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.entry_panel = new System.Windows.Forms.Panel();
+            this.hist_dgv = new System.Windows.Forms.DataGridView();
+            this.hist_date_cbox = new System.Windows.Forms.ComboBox();
             this.header_add_panel = new System.Windows.Forms.Panel();
             this.history_label = new System.Windows.Forms.Label();
-            this.hist_date_cbox = new System.Windows.Forms.ComboBox();
-            this.hist_dgv = new System.Windows.Forms.DataGridView();
             this.entry_panel.SuspendLayout();
-            this.header_add_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hist_dgv)).BeginInit();
+            this.header_add_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // entry_panel
@@ -46,6 +46,26 @@
             this.entry_panel.Name = "entry_panel";
             this.entry_panel.Size = new System.Drawing.Size(672, 291);
             this.entry_panel.TabIndex = 3;
+            // 
+            // hist_dgv
+            // 
+            this.hist_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.hist_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.hist_dgv.Location = new System.Drawing.Point(3, 46);
+            this.hist_dgv.Name = "hist_dgv";
+            this.hist_dgv.Size = new System.Drawing.Size(666, 242);
+            this.hist_dgv.TabIndex = 1;
+            // 
+            // hist_date_cbox
+            // 
+            this.hist_date_cbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hist_date_cbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hist_date_cbox.FormattingEnabled = true;
+            this.hist_date_cbox.Location = new System.Drawing.Point(136, 9);
+            this.hist_date_cbox.Name = "hist_date_cbox";
+            this.hist_date_cbox.Size = new System.Drawing.Size(385, 28);
+            this.hist_date_cbox.TabIndex = 0;
+            this.hist_date_cbox.SelectedIndexChanged += new System.EventHandler(this.hist_date_cbox_SelectedIndexChanged);
             // 
             // header_add_panel
             // 
@@ -68,25 +88,6 @@
             this.history_label.TabIndex = 1;
             this.history_label.Text = "HISTORY";
             // 
-            // hist_date_cbox
-            // 
-            this.hist_date_cbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.hist_date_cbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hist_date_cbox.FormattingEnabled = true;
-            this.hist_date_cbox.Location = new System.Drawing.Point(136, 9);
-            this.hist_date_cbox.Name = "hist_date_cbox";
-            this.hist_date_cbox.Size = new System.Drawing.Size(385, 28);
-            this.hist_date_cbox.TabIndex = 0;
-            // 
-            // hist_dgv
-            // 
-            this.hist_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.hist_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.hist_dgv.Location = new System.Drawing.Point(3, 46);
-            this.hist_dgv.Name = "hist_dgv";
-            this.hist_dgv.Size = new System.Drawing.Size(666, 242);
-            this.hist_dgv.TabIndex = 1;
-            // 
             // history_userControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,9 +97,9 @@
             this.Name = "history_userControl";
             this.Size = new System.Drawing.Size(679, 416);
             this.entry_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.hist_dgv)).EndInit();
             this.header_add_panel.ResumeLayout(false);
             this.header_add_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hist_dgv)).EndInit();
             this.ResumeLayout(false);
 
         }

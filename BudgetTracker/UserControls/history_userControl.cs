@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq.Mapping;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,7 @@ namespace BudgetTracker.UserControls
         {
             InitializeComponent();
             loadcBox();
-            if(hist_date_cbox.Text != "")
-            {
-                loadTable();
-            }
+            loadTable();
             
         }
 
@@ -46,19 +44,6 @@ namespace BudgetTracker.UserControls
 
             var filteredData = dataTable.AsEnumerable().Select(t => t);     
 
-            if (hist_date_cbox.Text == "All Time")
-            {
-                filteredData = dataTable.AsEnumerable().Select(t => t);
-            }
-            else
-            {
-                DateTime date = Convert.ToDateTime(hist_date_cbox.Text);
-                filteredData = dataTable.AsEnumerable().Where(t => t.Field<DateTime>("Flow_datetime").Date == date);
-            }
-            
-
-            
-
             if (filteredData.Any())
             {
                 hist_dgv.DataSource = filteredData.OrderBy(t => t.Field<DateTime>("Flow_datetime")).CopyToDataTable();
@@ -80,6 +65,42 @@ namespace BudgetTracker.UserControls
         private void dgvSetHeadTextColumn(string headText, int colInd, DataGridView dgvCol)
         {
             dgvCol.Columns[colInd].HeaderText = headText;
+        }
+
+        private void hist_date_cbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cash_flow_histTableAdapter cfht = new cash_flow_histTableAdapter();
+
+            DataTable dataTable = cfht.GetData();
+
+            var filteredData = dataTable.AsEnumerable().Select(t => t);
+
+            if (hist_date_cbox.Text == "All Time" || hist_date_cbox.Text == "")
+            {
+                filteredData = dataTable.AsEnumerable().Select(t => t);
+            }
+            else
+            {
+                DateTime date = Convert.ToDateTime(hist_date_cbox.Text);
+                filteredData = dataTable.AsEnumerable().Where(t => t.Field<DateTime>("Flow_datetime").Date == date);
+            }
+
+            if (filteredData.Any())
+            {
+                hist_dgv.DataSource = filteredData.OrderBy(t => t.Field<DateTime>("Flow_datetime")).CopyToDataTable();
+
+                dgvSetHeadTextColumn("Entry ID", 0, hist_dgv);
+                dgvSetHeadTextColumn("Entry Description", 1, hist_dgv);
+                dgvSetHeadTextColumn("Entry Amount", 2, hist_dgv);
+                dgvSetHeadTextColumn("Entry Date", 3, hist_dgv);
+                dgvSetHeadTextColumn("Entry Timestamp", 4, hist_dgv);
+                dgvSetHeadTextColumn("Entry Operation", 5, hist_dgv);
+                dgvSetHeadTextColumn("Entry Type", 6, hist_dgv);
+            }
+            else
+            {
+                hist_dgv.DataSource = null;
+            }
         }
     }
 }
