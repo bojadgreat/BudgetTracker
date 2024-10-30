@@ -98,7 +98,7 @@ namespace BudgetTracker
 
         #region CHART
         //chart initialization
-        private void initialize_chart(List<date_total> dateTotals, List<date_income> dateIncome, List<date_expense> dateExpense 
+        private void initialize_chart(List<date_total> dateTotals, List<date_income> dateIncome, List<date_expense> dateExpense)
         {
             //// Add data points to remaining balance
             //foreach (var data in dateTotals)
