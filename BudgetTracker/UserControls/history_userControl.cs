@@ -30,7 +30,7 @@ namespace BudgetTracker.UserControls
             cashFlowHistoryDataSet cfhs = DBUtil.Get_cfhs();
             hist_date_cbox.Items.Add("All Time");
             
-            var hist_date = cfhs.cash_flow_hist.Select(t => t.flow_datetime).ToList();
+            var hist_date = cfhs.cash_flow_hist.Select(t => t.flow_datetime.ToString("d")).Distinct().ToList();
 
             hist_date_cbox.Items.AddRange(hist_date.Cast<object>().ToArray());
         }
