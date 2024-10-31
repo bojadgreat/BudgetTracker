@@ -111,22 +111,31 @@ namespace BudgetTracker
             cashFlowChart.Series["Report"].Points.Clear();
             cashFlowChart.Series["Report"].IsValueShownAsLabel = true;
             
-            foreach (var data in dateTotals)
+            if(dateTotals == null & dateIncome == null & dateExpense == null)
             {
-                cashFlowChart.Series["Report"].Points.AddXY("Remaining Balance", $"{data.rem_total:0.00}");
+                return;
             }
+            else
+            {
+                foreach (var data in dateTotals)
+                {
+                    cashFlowChart.Series["Report"].Points.AddXY("Remaining Balance", $"{data.rem_total:0.00}");
+                }
 
-            // Add data points to income
-            foreach (var data in dateIncome)
-            {
-                cashFlowChart.Series["Report"].Points.AddXY($"Total Income for {DateTime.Now.ToString("MMMM")}", $"{data.tot_inc:0.00}");
-            }
+                // Add data points to income
+                foreach (var data in dateIncome)
+                {
+                    cashFlowChart.Series["Report"].Points.AddXY($"Total Income for {DateTime.Now.ToString("MMMM")}", $"{data.tot_inc:0.00}");
+                }
 
-            // Add data points to expenses
-            foreach (var data in dateExpense)
-            {
-                cashFlowChart.Series["Report"].Points.AddXY($"Total Expenses for {DateTime.Now.ToString("MMMM")}", $"{data.tot_exp:0.00}"); 
+                // Add data points to expenses
+                foreach (var data in dateExpense)
+                {
+                    cashFlowChart.Series["Report"].Points.AddXY($"Total Expenses for {DateTime.Now.ToString("MMMM")}", $"{data.tot_exp:0.00}");
+                }
             }
+            
+            
 
             // Optionally, format the chart axes.
             //cashFlowChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy"; // Format X-axis labels as dates
