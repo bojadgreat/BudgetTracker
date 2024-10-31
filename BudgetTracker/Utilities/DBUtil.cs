@@ -1,5 +1,6 @@
 ﻿using BudgetTracker.cashFlowDataSetTableAdapters;
 using BudgetTracker.cashFlowHistDataSetTableAdapters;
+using BudgetTracker.cashFlowHistoryDataSetTableAdapters;
 using BudgetTracker.Models;
 using System;
 using System.Collections.Generic;
@@ -65,16 +66,16 @@ namespace BudgetTracker.Utilities
             return cfds;
         }
 
-        public static cashFlowHistDataSet Get_cfhs()
+        public static cashFlowHistoryDataSet Get_cfhs()
         {
             // Create a new instance of the cashFlowDataSet for fetching
-            cashFlowHistDataSet cfhs = new cashFlowHistDataSet();
+            cashFlowHistoryDataSet cfhs = new cashFlowHistoryDataSet();
 
             // Initialize the TableAdapter
-            cash_flow_historyTableAdapter tableAdapter = new cash_flow_historyTableAdapter();
+            cash_flow_histTableAdapter tableAdapter = new cash_flow_histTableAdapter();
 
             // Call Fill() method on the TableAdapter to populate the dataset
-            tableAdapter.Fill(cfhs.cash_flow_history);
+            tableAdapter.Fill(cfhs.cash_flow_hist);
 
             return cfhs;
         }
