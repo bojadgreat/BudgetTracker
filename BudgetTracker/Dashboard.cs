@@ -111,7 +111,7 @@ namespace BudgetTracker
             cashFlowChart.Series["Report"].Points.Clear();
             cashFlowChart.Series["Report"].IsValueShownAsLabel = true;
             
-            if(dateTotals == null & dateIncome == null & dateExpense == null)
+            if(!dateIncome.Any() && !dateExpense.Any())
             {
                 return;
             }
@@ -234,8 +234,11 @@ namespace BudgetTracker
             //    .ToList();
 
             // Add all the grouped data to the date_Totals list.
-            date_Income.Add(di);
-
+            if(di.tot_inc != 0)
+            {
+                date_Income.Add(di);
+            }
+            
             return date_Income;
         }
 
@@ -266,7 +269,12 @@ namespace BudgetTracker
             //    .ToList();
 
             // Add all the grouped data to the date_Totals list.
-            date_Expense.Add(de);
+            
+            if(de.tot_exp != 0)
+            {
+                date_Expense.Add(de);
+            }
+            
 
             return date_Expense;
         }
