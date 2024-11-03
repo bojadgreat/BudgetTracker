@@ -20,6 +20,7 @@ namespace BudgetTracker.UserControls
         {
             InitializeComponent();
             loadcBox();
+            hist_date_cbox.SelectedIndex = 0;
             loadTable();
             
         }
