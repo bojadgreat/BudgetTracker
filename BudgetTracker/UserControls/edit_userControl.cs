@@ -49,8 +49,6 @@ namespace BudgetTracker.UserControls
                 return; // Stop execution if invalid
             }
 
-            
-
             e_edit.SetEditFlowDescription(edit_descTB.Text);
             e_edit.SetEditFlowType(edit_typeCbox.SelectedItem.ToString());
             e_edit.SetEditFlowDatetime(edit_dateDTP.Value);
@@ -70,7 +68,6 @@ namespace BudgetTracker.UserControls
                 cash_flow_tableTableAdapter cflow = new cash_flow_tableTableAdapter();
                 //cash_flow_historyTableAdapter chist = new cash_flow_historyTableAdapter();
                 cash_flow_histTableAdapter cHist = new cash_flow_histTableAdapter();
-
 
                 // Add new entry to the database
                 cflow.Update(e_edit.flow_description, e_edit.flow_amount, e_edit.flow_type, e_edit.flow_datetime, e_edit.flow_timestamp, id);

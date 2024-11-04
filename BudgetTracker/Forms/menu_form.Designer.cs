@@ -37,6 +37,7 @@
             this.menu_panel.Name = "menu_panel";
             this.menu_panel.Size = new System.Drawing.Size(679, 416);
             this.menu_panel.TabIndex = 0;
+            this.menu_panel.Leave += new System.EventHandler(this.menu_panel_Leave);
             // 
             // menu_form
             // 
@@ -46,6 +47,7 @@
             this.Controls.Add(this.menu_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "menu_form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.ResumeLayout(false);
 

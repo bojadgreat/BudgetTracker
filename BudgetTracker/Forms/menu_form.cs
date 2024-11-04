@@ -40,5 +40,19 @@ namespace BudgetTracker.Forms
             menu_panel.Controls.Add(userControl);
             userControl.BringToFront();
         }
+
+        private void menu_panel_Leave(object sender, EventArgs e)
+        {
+            Form tmp = this.FindForm();
+            tmp.Close();
+            tmp.Dispose();
+
+            // Bring the dashboard back to normal
+            Dashboard dashboard = Application.OpenForms["Dashboard"] as Dashboard;
+            if (dashboard != null)
+            {
+                dashboard.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
