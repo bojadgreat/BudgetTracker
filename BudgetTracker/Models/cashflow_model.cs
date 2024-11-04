@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BudgetTracker.Models
 {
-    internal class cashflow_model
+    public class cashflow_model
     {
         public int id {  get; private set; }
         public string flow_description {  get; private set; }
