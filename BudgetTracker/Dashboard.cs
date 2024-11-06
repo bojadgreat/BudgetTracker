@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +27,7 @@ namespace BudgetTracker
             InitializeComponent();
             date_label.Text = DateTime.Now.ToString("yyyy-MM-dd");
             updateClock();
-
+            updateWeather();
         }
 
         #region DASHBOARD FUNCTIONALITY
@@ -39,6 +40,22 @@ namespace BudgetTracker
 
                 // Wait for 1 second before updating again (non-blocking)
                 await Task.Delay(1000);
+            }
+        }
+
+        private async void updateWeather()
+        {
+            DotNetEnv.Env.Load();
+            var client = new HttpClient();
+            var key = Environment.GetEnvironmentVariable("API_KEY");
+            var city = Environment.GetEnvironmentVariable("LOCATION");
+            var url = $"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}&units=metric";
+
+                
+            while (true)
+            {
+                var weatherResponse = client.GetStringAsync(url).Result;
+                await Task.Delay(86400);
             }
         }
 

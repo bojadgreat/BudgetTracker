@@ -54,7 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cash_flowDataGridView)).BeginInit();
             this.general_panel.SuspendLayout();
             this.info_panel.SuspendLayout();
-            this.time_panel.SuspendLayout();
             this.date_panel.SuspendLayout();
             this.controls_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cashFlowChart)).BeginInit();
@@ -93,7 +92,6 @@
             // 
             // time_panel
             // 
-            this.time_panel.Controls.Add(this.time_label);
             this.time_panel.Location = new System.Drawing.Point(4, 112);
             this.time_panel.Name = "time_panel";
             this.time_panel.Size = new System.Drawing.Size(393, 102);
@@ -105,15 +103,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.time_label.AutoSize = true;
-            this.time_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.time_label.Location = new System.Drawing.Point(52, 14);
+            this.time_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.time_label.Location = new System.Drawing.Point(145, 58);
             this.time_label.Name = "time_label";
-            this.time_label.Size = new System.Drawing.Size(292, 76);
+            this.time_label.Size = new System.Drawing.Size(120, 31);
             this.time_label.TabIndex = 1;
             this.time_label.Text = "00:00:00";
             // 
             // date_panel
             // 
+            this.date_panel.Controls.Add(this.time_label);
             this.date_panel.Controls.Add(this.date_label);
             this.date_panel.Location = new System.Drawing.Point(4, 4);
             this.date_panel.Name = "date_panel";
@@ -126,10 +125,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.date_label.AutoSize = true;
-            this.date_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date_label.Location = new System.Drawing.Point(14, 14);
+            this.date_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_label.Location = new System.Drawing.Point(118, 20);
             this.date_label.Name = "date_label";
-            this.date_label.Size = new System.Drawing.Size(366, 76);
+            this.date_label.Size = new System.Drawing.Size(179, 38);
             this.date_label.TabIndex = 0;
             this.date_label.Text = "00/00/0000";
             // 
@@ -256,8 +255,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cash_flowDataGridView)).EndInit();
             this.general_panel.ResumeLayout(false);
             this.info_panel.ResumeLayout(false);
-            this.time_panel.ResumeLayout(false);
-            this.time_panel.PerformLayout();
             this.date_panel.ResumeLayout(false);
             this.date_panel.PerformLayout();
             this.controls_panel.ResumeLayout(false);
