@@ -3,6 +3,7 @@ using BudgetTracker.cashFlowHistDataSetTableAdapters;
 using BudgetTracker.cashFlowHistoryDataSetTableAdapters;
 using BudgetTracker.Models;
 using BudgetTracker.Utilities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,6 +57,7 @@ namespace BudgetTracker
             {
                 var weatherResponse = client.GetStringAsync(url).Result;
                 await Task.Delay(86400);
+                var weatherData = JsonConvert.DeserializeObject<weather>(weatherResponse);
             }
         }
 
