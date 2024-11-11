@@ -48,11 +48,8 @@ namespace BudgetTracker
         {
             DotNetEnv.Env.Load();
             var client = new HttpClient();
-            var key = Environment.GetEnvironmentVariable("API_KEY");
-            var city = Environment.GetEnvironmentVariable("LOCATION");
-            var url = $"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}&units=metric";
+            var url = "http://api.openweathermap.org/data/2.5/weather?q=Mandaue&appid=f4aedc6e88fbcf8053f75317d9fc7c23&units=metric";
 
-                
             while (true)
             {
                 var weatherResponse = client.GetStringAsync(url).Result;
