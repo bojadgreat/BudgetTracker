@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel1 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel3 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.cash_flowDataGridView = new System.Windows.Forms.DataGridView();
             this.general_panel = new System.Windows.Forms.Panel();
             this.info_panel = new System.Windows.Forms.Panel();
             this.time_panel = new System.Windows.Forms.Panel();
+            this.cityLabel = new System.Windows.Forms.Label();
+            this.tempLabel = new System.Windows.Forms.Label();
             this.date_panel = new System.Windows.Forms.Panel();
             this.time_label = new System.Windows.Forms.Label();
             this.date_label = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.cashFlowDataSet = new BudgetTracker.cashFlowDataSet();
             this.cashflowtableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cash_flow_tableTableAdapter = new BudgetTracker.cashFlowDataSetTableAdapters.cash_flow_tableTableAdapter();
-            this.tempLabel = new System.Windows.Forms.Label();
-            this.cityLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cash_flowDataGridView)).BeginInit();
             this.general_panel.SuspendLayout();
             this.info_panel.SuspendLayout();
@@ -101,6 +101,32 @@
             this.time_panel.Name = "time_panel";
             this.time_panel.Size = new System.Drawing.Size(393, 102);
             this.time_panel.TabIndex = 1;
+            // 
+            // cityLabel
+            // 
+            this.cityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityLabel.Location = new System.Drawing.Point(119, 55);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(147, 31);
+            this.cityLabel.TabIndex = 2;
+            this.cityLabel.Text = "CITY CITY";
+            // 
+            // tempLabel
+            // 
+            this.tempLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tempLabel.AutoSize = true;
+            this.tempLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tempLabel.Location = new System.Drawing.Point(31, 13);
+            this.tempLabel.Name = "tempLabel";
+            this.tempLabel.Size = new System.Drawing.Size(339, 38);
+            this.tempLabel.TabIndex = 2;
+            this.tempLabel.Text = "00.00*C Status Status";
             // 
             // date_panel
             // 
@@ -192,35 +218,35 @@
             // cashFlowChart
             // 
             this.cashFlowChart.BackColor = System.Drawing.SystemColors.Control;
-            customLabel1.ForeColor = System.Drawing.Color.Black;
-            chartArea1.AxisX.CustomLabels.Add(customLabel1);
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
-            chartArea1.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
-            chartArea1.AxisX.LabelAutoFitMinFontSize = 5;
-            chartArea1.AxisX.LabelStyle.Angle = -90;
-            chartArea1.AxisX.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Weeks;
-            chartArea1.AxisX.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Weeks;
-            chartArea1.BackColor = System.Drawing.SystemColors.Control;
-            chartArea1.Name = "total_cashflow_chart";
-            this.cashFlowChart.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.SystemColors.Control;
-            legend1.Name = "legend";
-            this.cashFlowChart.Legends.Add(legend1);
+            customLabel3.ForeColor = System.Drawing.Color.Black;
+            chartArea3.AxisX.CustomLabels.Add(customLabel3);
+            chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea3.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
+            chartArea3.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
+            chartArea3.AxisX.LabelAutoFitMinFontSize = 5;
+            chartArea3.AxisX.LabelStyle.Angle = -90;
+            chartArea3.AxisX.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Weeks;
+            chartArea3.AxisX.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Weeks;
+            chartArea3.BackColor = System.Drawing.SystemColors.Control;
+            chartArea3.Name = "total_cashflow_chart";
+            this.cashFlowChart.ChartAreas.Add(chartArea3);
+            legend3.BackColor = System.Drawing.SystemColors.Control;
+            legend3.Name = "legend";
+            this.cashFlowChart.Legends.Add(legend3);
             this.cashFlowChart.Location = new System.Drawing.Point(230, 3);
             this.cashFlowChart.Name = "cashFlowChart";
-            series1.ChartArea = "total_cashflow_chart";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "legend";
-            series1.Name = "Report";
-            this.cashFlowChart.Series.Add(series1);
+            series3.ChartArea = "total_cashflow_chart";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.IsValueShownAsLabel = true;
+            series3.Legend = "legend";
+            series3.Name = "Report";
+            this.cashFlowChart.Series.Add(series3);
             this.cashFlowChart.Size = new System.Drawing.Size(395, 211);
             this.cashFlowChart.TabIndex = 0;
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.Name = "chartTitle";
-            title1.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Emboss;
-            this.cashFlowChart.Titles.Add(title1);
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "chartTitle";
+            title3.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Emboss;
+            this.cashFlowChart.Titles.Add(title3);
             // 
             // table_panel
             // 
@@ -243,32 +269,6 @@
             // cash_flow_tableTableAdapter
             // 
             this.cash_flow_tableTableAdapter.ClearBeforeFill = true;
-            // 
-            // tempLabel
-            // 
-            this.tempLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tempLabel.AutoSize = true;
-            this.tempLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tempLabel.Location = new System.Drawing.Point(118, 13);
-            this.tempLabel.Name = "tempLabel";
-            this.tempLabel.Size = new System.Drawing.Size(174, 38);
-            this.tempLabel.TabIndex = 2;
-            this.tempLabel.Text = "0*C Status";
-            // 
-            // cityLabel
-            // 
-            this.cityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cityLabel.AutoSize = true;
-            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityLabel.Location = new System.Drawing.Point(163, 51);
-            this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(77, 31);
-            this.cityLabel.TabIndex = 2;
-            this.cityLabel.Text = "CITY";
             // 
             // Dashboard
             // 

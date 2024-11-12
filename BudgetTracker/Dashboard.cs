@@ -64,9 +64,11 @@ namespace BudgetTracker
             {
                 var weatherResponse = await client.GetStringAsync(url);
                 var weatherData = JsonConvert.DeserializeObject<Weather>(weatherResponse);
-                
-                tempLabel.Text = weatherData.Main.Temp.ToString();
-                cityLabel.Text = weatherData.Name.ToString() + " City";
+
+                string comString = weatherData.Main.Temp.ToString() + " °C " + weatherData.WeatherDetails[0].Description.ToUpper();
+                tempLabel.Text = comString;
+                string cityString = weatherData.Name.ToString() + " City";
+                cityLabel.Text = cityString;
             }
             catch (Exception ex)
             {

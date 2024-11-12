@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 public class Coord
 {
@@ -48,8 +49,10 @@ public class Sys
 
 public class Weather
 {
+    [JsonProperty("weather")]
+    public List<WeatherDetail> WeatherDetails { get; set; }  // Maps "weather" JSON key to WeatherDetails
+
     public Coord Coord { get; set; }
-    public List<WeatherDetail> WeatherDetails { get; set; }
     public string Base { get; set; }
     public MainWeather Main { get; set; }
     public int Visibility { get; set; }
