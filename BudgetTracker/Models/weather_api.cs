@@ -1,43 +1,64 @@
-﻿namespace BudgetTracker.Models
+﻿using System.Collections.Generic;
+
+public class Coord
 {
-    public class coord
-    {
-        public double lon { get; set; }
-        public double lat { get; set; }
-    }
-    
-    public class main
-    {
-        public double temp { get; set; }
-        public double feels_like { get; set; }
-        public double temp_min { get; set; }
-        public double temp_max { get; set; }
-        public int pressure { get; set; }
-        public int humidity { get; set; }
-        public int sea_level { get; set; }
-        public int grnd_level { get; set; }
-    }
+    public float Lon { get; set; }
+    public float Lat { get; set; }
+}
 
-    public class  wind
-    {
-        public double speed { get; set; }
-        public int deg { get; set; }
-    }
+public class WeatherDetail
+{
+    public int Id { get; set; }
+    public string Main { get; set; }
+    public string Description { get; set; }
+    public string Icon { get; set; }
+}
 
-    public class weather
-    {
-        public int id { get; set; }
-        public string main { get; set; }
-        public string description { get; set; }
-        public string icon { get; set; }
-    }
+public class MainWeather
+{
+    public float Temp { get; set; }
+    public float Feels_like { get; set; }
+    public float Temp_min { get; set; }
+    public float Temp_max { get; set; }
+    public int Pressure { get; set; }
+    public int Humidity { get; set; }
+    public int Sea_level { get; set; }
+    public int Grnd_level { get; set; }
+}
 
-    public class sys
-    {
-        public int type { get; set; }
-        public int id { get; set; }
-        public string country { get; set; }
-        public int sunrise { get; set; }
-        public int sunset { get; set; }
-    }
+public class Wind
+{
+    public float Speed { get; set; }
+    public int Deg { get; set; }
+}
+
+public class Clouds
+{
+    public int All { get; set; }
+}
+
+public class Sys
+{
+    public int Type { get; set; }
+    public int Id { get; set; }
+    public string Country { get; set; }
+    public int Sunrise { get; set; }
+    public int Sunset { get; set; }
+}
+
+public class Weather
+{
+    public Coord Coord { get; set; }
+    public List<WeatherDetail> WeatherDetails { get; set; }
+    public string Base { get; set; }
+    public MainWeather Main { get; set; }
+    public int Visibility { get; set; }
+    public Wind Wind { get; set; }
+    public Clouds Clouds { get; set; }
+    public int Dt { get; set; }
+    public Sys Sys { get; set; }
+    public int Timezone { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Cod { get; set; }
 }

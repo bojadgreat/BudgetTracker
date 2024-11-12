@@ -23,12 +23,22 @@ namespace BudgetTracker
 {
     public partial class Dashboard : Form
     {
+        private Timer _weatherTimer;
+
         public Dashboard()
         {
             InitializeComponent();
             date_label.Text = DateTime.Now.ToString("yyyy-MM-dd");
             updateClock();
             updateWeather();
+
+            // Initialize the timer for updating weather data every 24 hours
+            _weatherTimer = new Timer
+            {
+                Interval = 24 * 60 * 60 * 1000 // 24 hours in milliseconds
+            };
+            _weatherTimer.Tick += (sender, args) => updateWeather();
+            _weatherTimer.Start();
         }
 
         #region DASHBOARD FUNCTIONALITY
@@ -50,11 +60,17 @@ namespace BudgetTracker
             var client = new HttpClient();
             var url = "http://api.openweathermap.org/data/2.5/weather?q=Mandaue&appid=f4aedc6e88fbcf8053f75317d9fc7c23&units=metric";
 
-            while (true)
+            try
             {
-                var weatherResponse = client.GetStringAsync(url).Result;
-                await Task.Delay(86400);
-                var weatherData = JsonConvert.DeserializeObject<weather>(weatherResponse);
+                var weatherResponse = await client.GetStringAsync(url);
+                var weatherData = JsonConvert.DeserializeObject<Weather>(weatherResponse);
+                
+                tempLabel.Text = weatherData.Main.Temp.ToString();
+                cityLabel.Text = weatherData.Name.ToString() + " City";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error fetching weather data: " + ex.Message); 
             }
         }
 

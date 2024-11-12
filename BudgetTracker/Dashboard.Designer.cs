@@ -38,8 +38,8 @@
             this.general_panel = new System.Windows.Forms.Panel();
             this.info_panel = new System.Windows.Forms.Panel();
             this.time_panel = new System.Windows.Forms.Panel();
-            this.time_label = new System.Windows.Forms.Label();
             this.date_panel = new System.Windows.Forms.Panel();
+            this.time_label = new System.Windows.Forms.Label();
             this.date_label = new System.Windows.Forms.Label();
             this.controls_panel = new System.Windows.Forms.Panel();
             this.history_button = new System.Windows.Forms.Button();
@@ -51,9 +51,12 @@
             this.cashFlowDataSet = new BudgetTracker.cashFlowDataSet();
             this.cashflowtableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cash_flow_tableTableAdapter = new BudgetTracker.cashFlowDataSetTableAdapters.cash_flow_tableTableAdapter();
+            this.tempLabel = new System.Windows.Forms.Label();
+            this.cityLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cash_flowDataGridView)).BeginInit();
             this.general_panel.SuspendLayout();
             this.info_panel.SuspendLayout();
+            this.time_panel.SuspendLayout();
             this.date_panel.SuspendLayout();
             this.controls_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cashFlowChart)).BeginInit();
@@ -92,10 +95,21 @@
             // 
             // time_panel
             // 
+            this.time_panel.Controls.Add(this.cityLabel);
+            this.time_panel.Controls.Add(this.tempLabel);
             this.time_panel.Location = new System.Drawing.Point(4, 112);
             this.time_panel.Name = "time_panel";
             this.time_panel.Size = new System.Drawing.Size(393, 102);
             this.time_panel.TabIndex = 1;
+            // 
+            // date_panel
+            // 
+            this.date_panel.Controls.Add(this.time_label);
+            this.date_panel.Controls.Add(this.date_label);
+            this.date_panel.Location = new System.Drawing.Point(4, 4);
+            this.date_panel.Name = "date_panel";
+            this.date_panel.Size = new System.Drawing.Size(393, 102);
+            this.date_panel.TabIndex = 0;
             // 
             // time_label
             // 
@@ -109,15 +123,6 @@
             this.time_label.Size = new System.Drawing.Size(120, 31);
             this.time_label.TabIndex = 1;
             this.time_label.Text = "00:00:00";
-            // 
-            // date_panel
-            // 
-            this.date_panel.Controls.Add(this.time_label);
-            this.date_panel.Controls.Add(this.date_label);
-            this.date_panel.Location = new System.Drawing.Point(4, 4);
-            this.date_panel.Name = "date_panel";
-            this.date_panel.Size = new System.Drawing.Size(393, 102);
-            this.date_panel.TabIndex = 0;
             // 
             // date_label
             // 
@@ -239,6 +244,32 @@
             // 
             this.cash_flow_tableTableAdapter.ClearBeforeFill = true;
             // 
+            // tempLabel
+            // 
+            this.tempLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tempLabel.AutoSize = true;
+            this.tempLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tempLabel.Location = new System.Drawing.Point(118, 13);
+            this.tempLabel.Name = "tempLabel";
+            this.tempLabel.Size = new System.Drawing.Size(174, 38);
+            this.tempLabel.TabIndex = 2;
+            this.tempLabel.Text = "0*C Status";
+            // 
+            // cityLabel
+            // 
+            this.cityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityLabel.Location = new System.Drawing.Point(163, 51);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(77, 31);
+            this.cityLabel.TabIndex = 2;
+            this.cityLabel.Text = "CITY";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +286,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cash_flowDataGridView)).EndInit();
             this.general_panel.ResumeLayout(false);
             this.info_panel.ResumeLayout(false);
+            this.time_panel.ResumeLayout(false);
+            this.time_panel.PerformLayout();
             this.date_panel.ResumeLayout(false);
             this.date_panel.PerformLayout();
             this.controls_panel.ResumeLayout(false);
@@ -284,6 +317,8 @@
         private cashFlowDataSet cashFlowDataSet;
         private System.Windows.Forms.BindingSource cashflowtableBindingSource;
         private cashFlowDataSetTableAdapters.cash_flow_tableTableAdapter cash_flow_tableTableAdapter;
+        private System.Windows.Forms.Label cityLabel;
+        private System.Windows.Forms.Label tempLabel;
     }
 }
 

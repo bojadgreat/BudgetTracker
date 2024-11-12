@@ -492,7 +492,6 @@
     <EmbeddedResource Include="UserControls\history_userControl.resx">
       <DependentUpon>history_userControl.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="systemVar.env" />
     <None Include="cashFlowDataSet.xsc">
       <DependentUpon>cashFlowDataSet.xsd</DependentUpon>
     </None>
